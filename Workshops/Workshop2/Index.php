@@ -23,7 +23,7 @@
                 <input type="password" id="" name="password" placeholder="Password">
             <br><br>
 
-            <input type="submit" name="register"> </input>
+            <input type="submit" name="register">
         </form>
     </div>
 
