@@ -14,7 +14,14 @@ if (isset($_POST['register'])) {
         if($result) {
             ?>
             <h3 class="ok"> ¡Registro exitoso! </h3>
+
             <?php
+
+            echo "<br>";
+            echo "Name: ", $name;
+            echo "<br>";
+            echo "Email: ", $email;
+
         } else {
             ?>
             <h3 class="bad"> ¡Registro fallido! </h3>
