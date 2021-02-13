@@ -12,13 +12,14 @@
             $codigo = $row['codigo'];
             $nombre = $row['nombre'];
             array_push($list, $nombre);
-            echo $nombre;
-            ?> 
-            
-            <?php
-
         }
     }
 }
 
-?>
+function fillList($list) {
+    for ($i = 1; $i <= count($list, COUNT_NORMAL); $i++) {
+        ?>
+        <option value="<?php echo $list[$i - 1]; ?>"> <?php echo $list[$i - 1]; ?> </option>
+        <?php
+    }
+}

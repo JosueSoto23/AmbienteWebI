@@ -1,3 +1,10 @@
+<?php
+
+include "Register.php";
+include "Carrers.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -31,8 +38,8 @@
             <input type="email" id="" name="correo" placeholder="Correo">
             <br><br>
             <label for="carrera"> Carrera: </label>
-            <select name="carrera" id="carrera">
-                <option value="volvo">Volvo</option>
+            <select id="carrera" name="carrera">
+                <?php fillList($list) ?>
             </select>
             <br><br>
             <input type="submit" name="register">
@@ -42,10 +49,3 @@
 </body>
 
 </html>
-
-<?php
-
-include "Register.php";
-include "Carrers.php";
-
-?>
