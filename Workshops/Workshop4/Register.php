@@ -11,7 +11,7 @@ if (isset($_POST['register'])) {
         $apellidos = trim($_POST['apellidos']);
         $correo = trim($_POST['correo']);
         $carrera = trim($_POST['carrera']);
-        $fecha = date("d-m-Y h:i a");
+        $fecha = date("Y-m-d H:i:s");
 
         $consult = "INSERT INTO matricula(cedula, nombre, apellidos, correo, carrera, fecha) 
         VALUES ('$cedula', '$nombre', '$apellidos', '$correo', '$carrera', '$fecha')";
@@ -19,18 +19,16 @@ if (isset($_POST['register'])) {
 
         if($result) {
             ?>
-            <h3 class="ok"> ¡Registro exitoso! </h3>
-
+            <br><h3 class="ok"> ¡Registro exitoso! </h3>
             <?php
-
         } else {
             ?>
-            <h3 class="bad"> ¡Registro fallido! </h3>
+            <br><h3 class="bad"> ¡Registro fallido! </h3>
             <?php
         }
     } else {
         ?>
-            <h3 class="bad"> Campos requeridos </h3>
+            <br><h3 class="bad"> Campos requeridos </h3>
             <?php
     }
 }

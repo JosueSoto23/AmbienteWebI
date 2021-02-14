@@ -1,6 +1,5 @@
 <?php
 
-include "Register.php";
 include "Carrers.php";
 
 ?>
@@ -37,15 +36,22 @@ include "Carrers.php";
             <br><br>
             <input type="email" id="" name="correo" placeholder="Correo">
             <br><br>
-            <label for="carrera"> Carrera: </label>
+            <label for="carrera"> Carrera: </label> <br>
             <select id="carrera" name="carrera">
                 <?php fillList($list) ?>
             </select>
             <br><br>
             <input type="submit" name="register">
+            <a href="Matriculas.php">Matriculas</a>
         </form>
     </div>
 
 </body>
 
 </html>
+
+<?php
+
+include "Register.php";
+
+?>
