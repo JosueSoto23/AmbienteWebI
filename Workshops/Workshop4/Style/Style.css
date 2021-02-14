@@ -97,6 +97,10 @@ button {
     color: white;
 }
 
+a {
+    color: white;
+}
+
 .ok {
     text-align: center;
     width: calc(100% - 1300px);

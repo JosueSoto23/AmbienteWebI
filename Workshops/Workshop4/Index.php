@@ -42,7 +42,7 @@ include "Carrers.php";
             </select>
             <br><br>
             <input type="submit" name="register">
-            <a href="Matriculas.php">Matriculas</a>
+            <button><a href="Matriculas.php"> Matriculas </a></button>
         </form>
     </div>
 
