@@ -98,6 +98,12 @@ button {
 }
 
 a {
+    color: blue;
+    margin-left: 33%;
+    align-items: center;
+}
+
+.a-Button {
     color: white;
 }
 
