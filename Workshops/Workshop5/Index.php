@@ -37,9 +37,6 @@
 
 <?php
 
-if(isset($_POST['auth'])) {
     include "Auth.php";
-    authenticate($_GET['cedula'], $_GET['contra'], $nombres, $cedulas, $contras);
-}
 
 ?>

@@ -21,7 +21,7 @@ if ($inc) {
         		<p>
         			<b> Correo: </b> <?php echo $correo ?> <br>
         		    <b> Carrera: </b> <?php echo $carrera ?> <br>
-					
+				
         		</p>
         	</div>
         </div> 

@@ -29,7 +29,7 @@
             <label for="rol"> Rol: </label> <br>
             <select id="carrera" name="rol">
                 <option value="estudiante"> Estudiante </option>
-                <option value="estudiante"> Administrador </option>
+                <option value="administrador"> Administrador </option>
             </select>
             <br><br>
             <input type="password" name="contra" placeholder="Contraseña">
