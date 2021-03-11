@@ -1,0 +1,30 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: cursive;
+}
+
+header {
+    padding: 2%;
+    background-color: grey;
+    color: white;
+    text-align: center;
+}
+
+body {
+    background-color: indigo;
+    margin-bottom: 0%;
+}
+
+.home {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.container {
+    text-align: center;
+}
+
+footer {
+    background-color: tomato;
+}
