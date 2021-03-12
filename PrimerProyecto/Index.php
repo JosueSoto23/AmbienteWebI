@@ -22,7 +22,7 @@
   </header>
 
   <div class="container">
-    <form action="Includes/UserLogin.php" method="post">
+    <form action="" method="POST">
 
       <div class="input-group mb-3">
         <span class="input-group-text" id="basic-addon1"> Correo </span>
@@ -33,11 +33,17 @@
         <input type="password" name="contraseña" class="form-control">
       </div>
       <br>
-      <button type="submit" value="Ingresar" class="btn btn-primary"> Ingresar </button><br>
+      <button type="submit" name="login" value="Ingresar" class="btn btn-primary"> Ingresar </button><br>
       <a href="UserRegister.php"> Registrarse </a>
 
     </form>
   </div>
+
+  <?php
+
+  include "Includes/UserLogin.php";
+
+  ?>
 
   <footer>
     <div class="footer">
