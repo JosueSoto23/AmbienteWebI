@@ -1,35 +1,32 @@
 <?php
-
-include "Connection.php";
-
-$email = $_POST['email'];
-$pass = $_POST['pass'];
+include('Connection.php');
+$usuario = $_POST['usuario'];
+$contraseña = md5($_POST['contraseña']);
 session_start();
-$_SESSION['user'] = $user;
+$_SESSION['usuario'] = $usuario;
 
 
-$conex = mysqli_connect("localhost", "root", "", "primerproyecto");
+$conexion = mysqli_connect("localhost", "root", "", "primerproyecto");
 
-$consult = "SELECT * FROM users where email = '$email' and pass = '$pass'";
-$result = mysqli_query($conex, $consult);
+$consulta = "SELECT * FROM users where email = '$usuario' and pass = '$contraseña'";
+$resultado = mysqli_query($conexion, $consulta);
 
-$filas = mysqli_num_rows($result);
+$filas = mysqli_num_rows($resultado);
 
 if ($filas) {
 
   //header("location:home.php");
   echo "ADIOS";
-
 } else {
 ?>
   <?php
   //include("index.html");
-  echo "HOLA";
+  echo "HOLAS";
 
   ?>
   <h1 class="bad">ERROR DE AUTENTIFICACION</h1>
 <?php
 }
 
-mysqli_free_result($result);
-mysqli_close($conex);
+mysqli_free_result($resultado);
+mysqli_close($conexion);
