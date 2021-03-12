@@ -46,6 +46,7 @@
             <input type="password" name="pass" class="form-control" aria-label="Password" aria-describedby="basic-addon1">
         </div>
 
+        <br>
         <button type="submit" name="register" class="btn btn-primary"> Registrar </button>
 
     </form>

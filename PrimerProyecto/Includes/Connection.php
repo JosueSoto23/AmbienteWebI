@@ -11,7 +11,6 @@ if ($conex->connect_errno) {
   return $conex;
 }
 
-
 function userAuthentication($email, $pass){
     $conex = getConnection();
     $sql = "SELECT * FROM Users WHERE email = '$email' and pass = '$pass'";
@@ -24,5 +23,3 @@ function userAuthentication($email, $pass){
     $conex->close();
     return $result->fetch_array();
   }
-
-?>
