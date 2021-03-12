@@ -6,14 +6,10 @@
 
 header {
     padding: 2%;
-    background-color: grey;
+    margin-bottom: 2%;
+    background-color: cadetblue;
     color: white;
     text-align: center;
-}
-
-body {
-    background-color: indigo;
-    margin-bottom: 0%;
 }
 
 .home {
@@ -21,10 +17,35 @@ body {
     flex-wrap: wrap;
 }
 
+form {
+    align-content: center;
+    align-items: center;
+    text-align: center;
+}
+
 .container {
     text-align: center;
 }
 
-footer {
-    background-color: tomato;
+.input-group-text {
+    text-align: center;
+    margin-left: calc(10%);
+}
+
+.form-control {
+    margin-right: calc(10%);
+}
+
+.alert-success {
+    text-align: center;
+    margin-top: 2%;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.alert-danger {
+    text-align: center;
+    margin-top: 2%;
+    margin-left: 10%;
+    margin-right: 10%;
 }

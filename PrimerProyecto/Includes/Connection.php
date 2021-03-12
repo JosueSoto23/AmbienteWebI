@@ -14,7 +14,7 @@ if ($conex->connect_errno) {
 
 function userAuthentication($email, $pass){
     $conex = getConnection();
-    $sql = "SELECT * FROM usuario WHERE correo = '$email' and contra = '$pass'";
+    $sql = "SELECT * FROM Users WHERE email = '$email' and pass = '$pass'";
     $result = $conex->query($sql);
   
     if ($conex->connect_errno) {
@@ -24,3 +24,5 @@ function userAuthentication($email, $pass){
     $conex->close();
     return $result->fetch_array();
   }
+
+?>
