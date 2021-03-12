@@ -12,7 +12,7 @@ if ($conex->connect_errno) {
 }
 
 
-function authenticate($email, $pass){
+function userAuthentication($email, $pass){
     $conex = getConnection();
     $sql = "SELECT * FROM usuario WHERE correo = '$email' and contra = '$pass'";
     $result = $conex->query($sql);
