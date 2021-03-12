@@ -18,36 +18,36 @@
 <body>
 
     <header>
-
         <h3 class="title"> Inicio de Sesión </h3>
-
     </header>
 
     <section class="home">
-
         <div class="container">
-
             <form action="POST">
 
-                <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label"> Correo Electrónico </label>
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1"> Correo </span>
+                    <input type="email" name="email" class="form-control" aria-label="Email" aria-describedby="basic-addon1">
                 </div>
-                <div class="mb-3">
-                    <label for="exampleInputPassword1" class="form-label"> Contraseña </label>
-                    <input type="password" class="form-control" id="exampleInputPassword1">
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1"> Contraseña </span>
+                    <input type="password" name="pass" class="form-control" aria-label="Password" aria-describedby="basic-addon1">
                 </div>
-                <div class="mb-3 form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1"> Recuerdame </label>
-                </div>
-                <button type="submit" class="btn btn-primary"> Ingresar </button>
+
+                <button type="submit" name="login" class="btn btn-primary"> Ingresar </button>
 
             </form>
-
         </div>
-
     </section>
+
+    <footer>
+        <div class="footer">
+            <hr>
+            <h4> <a href="">My Cover</a> | <a href="">About</a> | <a href="">Help</a></h4>
+            <p>&copy; My News Cover</p>
+        </div>
+    </footer>
 
 </body>
 

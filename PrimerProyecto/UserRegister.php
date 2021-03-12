@@ -18,9 +18,7 @@
 <body>
 
     <header>
-
         <h3 class="title"> Registro de Usuario </h3>
-
     </header>
 
     <form method="POST">
@@ -54,10 +52,18 @@
 
 </body>
 
-</html>
-
 <?php
 
 include "Includes/UserRegistration.php";
 
 ?>
+
+<footer>
+    <div class="footer">
+        <hr>
+        <h4> <a href="">My Cover</a> | <a href="">About</a> | <a href="">Help</a></h4>
+        <p>&copy; My News Cover</p>
+    </div>
+</footer>
+
+</html>
