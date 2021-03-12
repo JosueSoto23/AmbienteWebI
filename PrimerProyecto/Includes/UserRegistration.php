@@ -7,7 +7,7 @@ if(isset($_POST['register'])) {
 
         $name  = $_POST['name'];
         $email = $_POST['email'];
-        $pass = $_POST['pass'];
+        $pass = md5($_POST['pass']);
         $role = $_POST['role'];
 
         $consult = "INSERT INTO users VALUES ('','$name','$email','$pass','$role') ";
