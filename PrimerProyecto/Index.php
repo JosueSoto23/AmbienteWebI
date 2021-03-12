@@ -21,25 +21,23 @@
     <h3 class="title"> Inicio de Sesión </h3>
   </header>
 
-    <div class="container">
-      <form action="POST" action="Includes/UserLogin.php" method="POST">
+  <div class="container">
+    <form action="Includes/UserLogin.php" method="post">
 
-        <div class="input-group mb-3">
-          <span class="input-group-text" id="basic-addon1"> Correo </span>
-          <input type="email" name="email" class="form-control">
-        </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1"> Correo </span>
+        <input type="email" name="usuario" class="form-control">
+      </div>
+      <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1"> Contraseña </span>
+        <input type="password" name="contraseña" class="form-control">
+      </div>
+      <br>
+      <button type="submit" value="Ingresar" class="btn btn-primary"> Ingresar </button><br>
+      <a href="UserRegister.php"> Registrarse </a>
 
-        <div class="input-group mb-3">
-          <span class="input-group-text" id="basic-addon1"> Contraseña </span>
-          <input type="password" name="pass" class="form-control">
-        </div>
-
-        <br>
-        <button type="submit" name="login" value="Ingresar" class="btn btn-primary"> Ingresar </button><br>
-        <a href="UserRegister.php"> Registrarse </a>
-
-      </form>
-    </div>
+    </form>
+  </div>
 
   <footer>
     <div class="footer">
