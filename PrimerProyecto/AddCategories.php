@@ -37,6 +37,12 @@
         </form>
     </div>
 
+    <?php
+
+    include "Includes/AddCategories.php";
+
+    ?>
+
     <footer>
         <div class="footer">
             <hr>

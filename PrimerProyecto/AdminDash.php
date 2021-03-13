@@ -1,9 +1,11 @@
 <?php
 
-require 'Includes/UserLogin.php';
+require "Includes/LoadCategories.php";
+
+session_start();
+
 
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -34,7 +36,31 @@ require 'Includes/UserLogin.php';
     </header>
 
     <div class="container">
-        
+        <h1>Categories</h1>
+        <hr id="hr3">
+
+        <table class="table table-responsive table-bordered">
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                foreach ($query as $row) { ?>
+                    <tr>
+                        <td><?php echo ($row['name']); ?></td>
+                        <td>
+                            <a href="editCateg.php?id=<?php echo $row['id'] ?>"><button type='button' class='btn btn-success'> Edit </button></a> 
+                            <a href="logica/eliminar.php?id=<?php echo $row['id'] ?>"><button type='button' class='btn btn-danger'> Delete </button></a>
+                        </td>
+                    </tr>
+            </tbody>
+        <?php
+                }
+        ?>
+        </table>
 
         <button onclick="location.href='AddCategories.php'" name="open-add-categories" class="btn btn-primary"> Add New </button><br>
     </div>
