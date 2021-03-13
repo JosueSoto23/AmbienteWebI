@@ -30,7 +30,7 @@ require 'Includes/UserLogin.php';
         <button type="button" class="btn btn-light" onclick="location.href='Includes/UserLogout.php'"> Logout </button>
         <button type="button" class="btn btn-light" onclick="location.href='NewsSources.php'"> News Sources </button>
         <h3 class="title"> Your Unique News Cover </h3>
-        <hr class="hr-title"><br>
+        <hr class="hr-title">
     </header>
 
     <div>

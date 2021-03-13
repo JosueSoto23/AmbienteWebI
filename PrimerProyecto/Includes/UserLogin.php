@@ -16,10 +16,16 @@ if (isset($_POST['login'])) {
     $resultado = mysqli_query($conexion, $consulta);
 
     $filas = mysqli_num_rows($resultado);
+    $user = mysqli_fetch_array($resultado);
 
     if ($filas) {
 
-      header("location: Dashboard.php");
+      if($user[4] === "Administrador") {
+        header("location: AdminDash.php");
+      } else {
+        header("location: UserDash.php");
+      }
+
     } else {
 
 ?>
