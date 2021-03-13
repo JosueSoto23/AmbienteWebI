@@ -7,9 +7,17 @@
 header {
     padding: 2%;
     margin-bottom: 2%;
-    background-color: cadetblue;
     color: white;
-    text-align: center;
+    text-align: left;
+}
+
+.title {
+    margin-left: 10%;
+    margin-bottom: 2%;
+}
+
+img {
+    width: 200px;
 }
 
 .home {

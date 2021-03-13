@@ -18,8 +18,11 @@
 <body>
 
     <header>
-        <h3 class="title"> Registro de Usuario </h3>
+        <img src="Images/logo.png" alt="">
     </header>
+
+    <hr><br>
+    <h3 class="title"> Registro de Usuario </h3>
 
     <form method="POST">
 

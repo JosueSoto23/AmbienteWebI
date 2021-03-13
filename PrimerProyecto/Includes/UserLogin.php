@@ -36,6 +36,14 @@ if (isset($_POST['login'])) {
     mysqli_free_result($resultado);
     mysqli_close($conexion);
   }
+
+  ?>
+        <div class="alert alert-danger" role="alert">
+            ¡Campos requeridos!
+        </div>
+
+    <?php
+
 }
 
 ?>
