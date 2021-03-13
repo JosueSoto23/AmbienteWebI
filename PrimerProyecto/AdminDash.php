@@ -52,8 +52,10 @@ session_start();
                     <tr>
                         <td><?php echo ($row['name']); ?></td>
                         <td>
-                            <a href="editCateg.php?id=<?php echo $row['id'] ?>"><button type='button' class='btn btn-success'> Edit </button></a> 
-                            <a href="logica/eliminar.php?id=<?php echo $row['id'] ?>"><button type='button' class='btn btn-danger'> Delete </button></a>
+                            <a href = "Includes/EditCategories.php?id=<?php echo $row['id'] ?>">
+                            <button type = 'button' class='btn btn-success'> Edit </button> </a> 
+                            <a href = "Includes/DeleteCategories.php?id=<?php echo $row['id'] ?>">
+                            <button type = 'button' class='btn btn-danger'> Delete </button> </a>
                         </td>
                     </tr>
             </tbody>
