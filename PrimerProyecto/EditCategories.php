@@ -1,16 +1,7 @@
-<?php
-
-require "Includes/LoadCategories.php";
-
-session_start();
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,39 +21,27 @@ session_start();
         <button type="button" class="btn btn-dark"> <img class="icon" src="Images/user_50px.png" alt="x" /> <?php echo "Admin"; ?> </button>
         <button type="button" class="btn btn-light" onclick="location.href='Includes/UserLogout.php'"> Logout </button>
         <button type="button" class="btn btn-light" onclick="location.href='AdminDash.php'"> Categories </button>
-        <h3 class="title"> Categories </h3>
+        <h3 class="title"> Edit Category </h3>
         <hr class="hr-title">
     </header>
 
     <div class="container">
+        <form action="" method="POST">
 
-        <table class="table table-responsive table-bordered">
-            <thead>
-                <tr>
-                    <th>Category</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                foreach ($query as $row) { ?>
-                    <tr>
-                        <td><?php echo ($row['name']); ?></td>
-                        <td>
-                            <a href = "EditCategories.php?id=<?php echo $row['id'] ?>">
-                            <button type = 'button' class='btn btn-success'> Edit </button> </a> 
-                            <a href = "Includes/DeleteCategories.php?id=<?php echo $row['id'] ?>">
-                            <button type = 'button' class='btn btn-danger'> Delete </button> </a>
-                        </td>
-                    </tr>
-            </tbody>
-        <?php
-                }
-        ?>
-        </table>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"> Name </span>
+                <input type="text" name="name" class="form-control" value="">
+            </div>
+            <button type="submit" name="edit-categories" value="Ingresar" class="btn btn-primary"> Save </button><br>
 
-        <button onclick="location.href='AddCategories.php'" name="open-add-categories" class="btn btn-primary"> Add New </button><br>
+        </form>
     </div>
+
+    <?php
+
+    include "Includes/EditCategories.php";
+
+    ?>
 
     <footer>
         <div class="footer">
