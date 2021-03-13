@@ -21,7 +21,7 @@
         <button type="button" class="btn btn-dark"> <img class="icon" src="Images/user_50px.png" alt="x" /> <?php echo "Admin"; ?> </button>
         <button type="button" class="btn btn-light" onclick="location.href='Includes/UserLogout.php'"> Logout </button>
         <button type="button" class="btn btn-light" onclick="location.href='AdminDash.php'"> Categories </button>
-        <h3 class="title"> Categories </h3>
+        <h3 class="title"> Add Categories </h3>
         <hr class="hr-title">
     </header>
 

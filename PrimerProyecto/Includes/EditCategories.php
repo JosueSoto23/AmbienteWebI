@@ -2,7 +2,7 @@
 
 include "Connection.php";
 
-if(isset($_POST['edit-categories'])) {
+if (isset($_POST['edit-categories'])) {
     if (strlen($_POST['name'] >= 1)) {
 
         $id = $_GET['id'];
@@ -14,37 +14,35 @@ if(isset($_POST['edit-categories'])) {
 
         if ($result) {
 
-    ?>
+?>
 
-        <div class="alert alert-success" role="alert">
-            ¡Registro exitoso!
-        </div>
+            <div class="alert alert-success" role="alert">
+                Successfully Registered!
+            </div>
 
-    <?php
+        <?php
 
         } else {
 
-    ?>
+        ?>
 
-        <div class="alert alert-danger" role="alert">
-            ¡Registro fallido!
-        </div>
+            <div class="alert alert-danger" role="alert">
+                Registration failed!
+            </div>
 
-    <?php
+        <?php
 
         }
-
     } else {
 
-    ?>
+        ?>
         <div class="alert alert-danger" role="alert">
-            ¡Campos requeridos!
+            Required fields!
         </div>
 
-    <?php
+<?php
 
     }
-
 }
 
 ?>

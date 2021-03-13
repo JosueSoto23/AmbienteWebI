@@ -31,7 +31,7 @@ if (isset($_POST['login'])) {
 ?>
 
       <div class="alert alert-danger" role="alert">
-        ¡Datos Incorrectos!
+        Incorrect data!
       </div>
 
   <?php
@@ -44,7 +44,7 @@ if (isset($_POST['login'])) {
 
   ?>
   <div class="alert alert-danger" role="alert">
-    ¡Campos requeridos!
+    Required fields!
   </div>
 
 <?php

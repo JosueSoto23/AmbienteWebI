@@ -15,7 +15,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="Style/Style.css" media="all">
 
-  <title> Primer Proyecto </title>
+  <title> My News Cover </title>
 
 </head>
 
@@ -25,23 +25,23 @@
     <h1><a href="Index.php"><img src="Images/logo.png"></a></h1>
   </header>
 
-  <h3 class="title"> Inicio de Sesión </h3>
+  <h3 class="title"> User Login </h3>
   <hr class="hr-title"><br>
 
   <div class="container">
     <form action="" method="POST">
 
       <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1"> Correo </span>
+        <span class="input-group-text" id="basic-addon1"> Email </span>
         <input type="email" name="usuario" class="form-control">
       </div>
       <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1"> Contraseña </span>
+        <span class="input-group-text" id="basic-addon1"> Password </span>
         <input type="password" name="contraseña" class="form-control">
       </div>
       <br>
-      <button type="submit" name="login" value="Ingresar" class="btn btn-primary"> Ingresar </button><br>
-      <a href="UserRegister.php"> Registrarse </a>
+      <button type="submit" name="login" value="Ingresar" class="btn btn-primary"> Login </button><br>
+      <a href="UserRegister.php"> Sign Up </a>
 
     </form>
   </div>

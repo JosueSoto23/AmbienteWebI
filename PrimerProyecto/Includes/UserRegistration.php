@@ -2,7 +2,7 @@
 
 include "Connection.php";
 
-if(isset($_POST['register'])) {
+if (isset($_POST['register'])) {
     if (strlen($_POST['name'] >= 1) && strlen($_POST['email'] >= 1) && strlen($_POST['pass'] >= 1) && strlen($_POST['role'] >= 1)) {
 
         $name  = $_POST['name'];
@@ -16,37 +16,35 @@ if(isset($_POST['register'])) {
 
         if ($result) {
 
-    ?>
+?>
 
-        <div class="alert alert-success" role="alert">
-            ¡Registro exitoso!
-        </div>
+            <div class="alert alert-success" role="alert">
+                Successfully Registered!
+            </div>
 
-    <?php
+        <?php
 
         } else {
 
-    ?>
+        ?>
 
-        <div class="alert alert-danger" role="alert">
-            ¡Registro fallido!
-        </div>
+            <div class="alert alert-danger" role="alert">
+                Registration failed!
+            </div>
 
-    <?php
+        <?php
 
         }
-
     } else {
 
-    ?>
+        ?>
         <div class="alert alert-danger" role="alert">
-            ¡Campos requeridos!
+            Required fields!
         </div>
 
-    <?php
+<?php
 
     }
-
 }
 
 ?>

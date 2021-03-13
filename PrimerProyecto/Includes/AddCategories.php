@@ -2,7 +2,7 @@
 
 include "Connection.php";
 
-if(isset($_POST['add-categories'])) {
+if (isset($_POST['add-categories'])) {
     if (strlen($_POST['name'] >= 1)) {
 
         $name  = $_POST['name'];
@@ -13,37 +13,35 @@ if(isset($_POST['add-categories'])) {
 
         if ($result) {
 
-    ?>
+?>
 
-        <div class="alert alert-success" role="alert">
-            ¡Registro exitoso!
-        </div>
+            <div class="alert alert-success" role="alert">
+                Successfully Registered!
+            </div>
 
-    <?php
+        <?php
 
         } else {
 
-    ?>
+        ?>
 
-        <div class="alert alert-danger" role="alert">
-            ¡Registro fallido!
-        </div>
+            <div class="alert alert-danger" role="alert">
+                Registration failed!
+            </div>
 
-    <?php
+        <?php
 
         }
-
     } else {
 
-    ?>
+        ?>
         <div class="alert alert-danger" role="alert">
-            ¡Campos requeridos!
+            Required fields!
         </div>
 
-    <?php
+<?php
 
     }
-
 }
 
 ?>

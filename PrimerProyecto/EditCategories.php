@@ -29,8 +29,8 @@
         <form action="" method="POST">
 
             <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1"> Name </span>
-                <input type="text" name="name" class="form-control" value="">
+                <span class="input-group-text" id="basic-addon1"> New Name </span>
+                <input type="text" name="name" class="form-control">
             </div>
             <button type="submit" name="edit-categories" value="Ingresar" class="btn btn-primary"> Save </button><br>
 

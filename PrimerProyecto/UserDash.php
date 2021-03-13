@@ -20,7 +20,7 @@ require 'Includes/UserLogin.php';
 
     <link rel="stylesheet" type="text/css" href="Style/Style.css">
 
-    <title> User Dashboard </title>
+    <title> My News Cover </title>
 
 </head>
 
@@ -31,7 +31,7 @@ require 'Includes/UserLogin.php';
         <button type="button" class="btn btn-dark"> <img class="icon" src="Images/user_50px.png" alt="x" /> <?php echo "Josué Soto"; ?> </button>
         <button type="button" class="btn btn-light" onclick="location.href='Includes/UserLogout.php'"> Logout </button>
         <button type="button" class="btn btn-light" onclick="location.href='NewsSources.php'"> News Sources </button>
-        <h1 class="text-center">Your unique News Cover</h1>
+        <h1 class="text-center"> Your unique News Cover </h1>
         <hr>
     </header>
 

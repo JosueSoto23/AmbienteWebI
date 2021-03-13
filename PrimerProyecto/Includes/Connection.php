@@ -5,7 +5,7 @@ function getConnection() {
 $conex = mysqli_connect("localhost", "root", "", "primerproyecto");
 
 if ($conex->connect_errno) {
-    printf("Fallo al conectarse a la base de datos: %s\n", $conex->connect_error);
+    printf("Failed to connect the database!: %s\n", $conex->connect_error);
     die;
   }
   return $conex;
