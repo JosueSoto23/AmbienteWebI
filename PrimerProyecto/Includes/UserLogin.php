@@ -20,16 +20,15 @@ if (isset($_POST['login'])) {
     if ($filas) {
 
       header("location: Dashboard.php");
-      
     } else {
 
 ?>
 
-  <div class="alert alert-danger" role="alert">
-    ¡Datos Incorrectos!
-  </div>
+      <div class="alert alert-danger" role="alert">
+        ¡Datos Incorrectos!
+      </div>
 
-<?php
+  <?php
 
     }
 
@@ -38,11 +37,11 @@ if (isset($_POST['login'])) {
   }
 
   ?>
-        <div class="alert alert-danger" role="alert">
-            ¡Campos requeridos!
-        </div>
+  <div class="alert alert-danger" role="alert">
+    ¡Campos requeridos!
+  </div>
 
-    <?php
+<?php
 
 }
 

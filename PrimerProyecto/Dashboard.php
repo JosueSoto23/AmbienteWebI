@@ -1,3 +1,10 @@
+<?php
+
+require 'Includes/UserLogin.php';
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,14 +25,17 @@
 <body>
 
     <header>
-        <img src="Images/logo.png" alt="">
-        
+        <h1><a href="Includes/UserLogout.php"><img src="Images/logo.png"></a></h1>
+        <button type="button" class="btn btn-dark"> <img class="icon" src="Images/user_50px.png" alt="x" /> <?php echo "Josué Soto"; ?> </button>
+        <button type="button" class="btn btn-light" onclick="location.href='Includes/UserLogout.php'"> Logout </button>
+        <button type="button" class="btn btn-light" onclick="location.href='NewsSources.php'"> News Sources </button>
+        <h3 class="title"> Your Unique News Cover </h3>
+        <hr class="hr-title"><br>
     </header>
 
-    <hr><br>
-    <h3 class="title"> Your Unique News Cover </h3>
-
-
+    <div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat quos maxime minima nisi esse commodi ullam vero non, at quis quasi dicta rerum necessitatibus, temporibus, sequi labore beatae optio est.</p>
+    </div>
 
     <footer>
         <div class="footer">

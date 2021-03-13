@@ -22,11 +22,11 @@
 <body>
 
   <header>
-    <img src="Images/logo.png" alt="">
+    <h1><a href="Index.php"><img src="Images/logo.png"></a></h1>
   </header>
 
-  <hr><br>
   <h3 class="title"> Inicio de Sesión </h3>
+  <hr class="hr-title"><br>
 
   <div class="container">
     <form action="" method="POST">

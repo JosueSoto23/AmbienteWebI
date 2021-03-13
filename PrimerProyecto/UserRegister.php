@@ -18,41 +18,43 @@
 <body>
 
     <header>
-        <img src="Images/logo.png" alt="">
+        <h1><a href="Index.php"><img src="Images/logo.png"></a></h1>
     </header>
 
-    <hr><br>
     <h3 class="title"> Registro de Usuario </h3>
+    <hr class="hr-title"><br>
 
-    <form method="POST">
+    <div class="container">
+        <form method="POST">
 
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1"> Nombre </span>
-            <input type="text" name="name" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
-        </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"> Nombre </span>
+                <input type="text" name="name" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
 
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1"> Correo </span>
-            <input type="email" name="email" class="form-control" aria-label="Email" aria-describedby="basic-addon1">
-        </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"> Correo </span>
+                <input type="email" name="email" class="form-control" aria-label="Email" aria-describedby="basic-addon1">
+            </div>
 
-        <div class="input-group mb-3">
-            <label class="input-group-text" for="inputGroupSelect01"> Role </label>
-            <select class="form-control" name="role" id="inputGroupSelect01">
-                <option value="Administrador"> Administrador </option>
-                <option value="Usuario"> Usuario </option>
-            </select>
-        </div>
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="inputGroupSelect01"> Role </label>
+                <select class="form-control" name="role" id="inputGroupSelect01">
+                    <option value="Administrador"> Administrador </option>
+                    <option value="Usuario"> Usuario </option>
+                </select>
+            </div>
 
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1"> Contraseña </span>
-            <input type="password" name="pass" class="form-control" aria-label="Password" aria-describedby="basic-addon1">
-        </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1"> Contraseña </span>
+                <input type="password" name="pass" class="form-control" aria-label="Password" aria-describedby="basic-addon1">
+            </div>
 
-        <br>
-        <button type="submit" name="register" class="btn btn-primary"> Registrar </button>
+            <br>
+            <button type="submit" name="register" class="btn btn-primary"> Registrar </button>
 
-    </form>
+        </form>
+    </div>
 
 </body>
 
