@@ -1,6 +1,6 @@
 <?php
 
-    include "Includes/LoadCategories.php";
+    include "Includes/LoadSources.php";
 
 ?>
 
@@ -37,6 +37,7 @@
             <table class="table table-responsive table-bordered">
                 <thead>
                     <tr>
+                        <th>Name</th>
                         <th>Category</th>
                         <th>Actions</th>
                     </tr>
@@ -46,10 +47,11 @@
                     foreach ($query as $row) { ?>
                         <tr>
                             <td><?php echo ($row['name']); ?></td>
+                            <td><?php echo ($row['category']); ?></td>
                             <td>
-                                <a href="EditCategories.php?id=<?php echo $row['id'] ?>">
+                                <a href="EditSources.php?id=<?php echo $row['id'] ?>">
                                     <button type='button' class='btn btn-success'> Edit </button> </a>
-                                <a href="Includes/DeleteCategories.php?id=<?php echo $row['id'] ?>">
+                                <a href="Includes/DeleteSources.php?id=<?php echo $row['id'] ?>">
                                     <button type='button' class='btn btn-danger'> Delete </button> </a>
                             </td>
                         </tr>

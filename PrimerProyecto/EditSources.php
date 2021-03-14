@@ -1,6 +1,6 @@
 <?php
 
-include "Includes/LoadCategories.php";
+    include "Includes/LoadCategories.php";
 
 ?>
 
@@ -24,10 +24,10 @@ include "Includes/LoadCategories.php";
 
     <header>
         <h1><a href="Includes/UserLogout.php"><img src="Images/logo.png"></a></h1>
-        <button type="button" class="btn btn-dark"> <img class="icon" src="Images/user_50px.png" alt="x" /> <?php echo "Josué Soto"; ?> </button>
+        <button type="button" class="btn btn-dark"> <img class="icon" src="Images/user_50px.png" alt="x" /> <?php echo "Admin"; ?> </button>
         <button type="button" class="btn btn-light" onclick="location.href='Includes/UserLogout.php'"> Logout </button>
         <button type="button" class="btn btn-light" onclick="location.href='NewsSources.php'"> News Sources </button>
-        <h3 class="title"> Add News Source </h3>
+        <h3 class="title"> Edit News Sources </h3>
         <hr class="hr-title">
     </header>
 
@@ -35,16 +35,17 @@ include "Includes/LoadCategories.php";
         <form action="" method="POST">
 
             <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1"> Name </span>
+                <span class="input-group-text" id="basic-addon1"> New Name </span>
                 <input type="text" name="name" class="form-control">
             </div>
+
             <div class="input-group mb-3">
-                <span class="input-group-text" id="basic-addon1"> RSS URL </span>
+                <span class="input-group-text" id="basic-addon1"> New RSS URL </span>
                 <input type="text" name="rss" class="form-control">
             </div>
 
             <div class="input-group mb-3">
-                <label class="input-group-text" for="inputGroupSelect01"> Categories </label>
+                <label class="input-group-text" for="inputGroupSelect01"> New Category </label>
                 <select class="form-control" name="categories" id="inputGroupSelect01">
                     <?php foreach ($query as $row) { ?>
                         <option value="<?php echo ($row['name']); ?>"> <?php echo ($row['name']); ?> </option>
@@ -54,14 +55,14 @@ include "Includes/LoadCategories.php";
                 </select>
             </div>
 
-            <button type="submit" name="add-sources" value="Ingresar" class="btn btn-primary"> Save </button><br>
+            <button type="submit" name="edit-sources" value="Ingresar" class="btn btn-primary"> Save </button><br>
 
         </form>
     </div>
 
     <?php
 
-    include "Includes/AddSource.php";
+    include "Includes/EditSources.php";
 
     ?>
 
