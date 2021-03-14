@@ -20,12 +20,11 @@ if (isset($_POST['login'])) {
 
     if ($filas) {
 
-      if($user[4] === "Administrador") {
+      if ($user[4] === "Administrador") {
         header("location: AdminDash.php");
       } else {
         header("location: UserDash.php");
       }
-
     } else {
 
 ?>
@@ -34,21 +33,20 @@ if (isset($_POST['login'])) {
         Incorrect data!
       </div>
 
-  <?php
-
+    <?php
+    
     }
 
     mysqli_free_result($resultado);
     mysqli_close($conexion);
-  }
 
-  ?>
-  <div class="alert alert-danger" role="alert">
-    Required fields!
-  </div>
+  }
+    ?>
+    <div class="alert alert-danger" role="alert">
+      Required fields!
+    </div>
 
 <?php
-
 }
 
 ?>

@@ -71,15 +71,15 @@ form {
 .alert-success {
     text-align: center;
     margin-top: 2%;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 40%;
+    margin-right: 40%;
 }
 
 .alert-danger {
     text-align: center;
     margin-top: 2%;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 40%;
+    margin-right: 40%;
 }
 
 .footer a {

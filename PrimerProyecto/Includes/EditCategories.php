@@ -17,7 +17,7 @@ if (isset($_POST['edit-categories'])) {
 ?>
 
             <div class="alert alert-success" role="alert">
-                Successfully Registered!
+                Successfully Edited!
             </div>
 
         <?php
