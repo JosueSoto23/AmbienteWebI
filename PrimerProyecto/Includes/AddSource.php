@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+$usuario_id = $_SESSION['id'];
 
 if (isset($_POST['add-sources'])) {
     if (strlen($_POST['name'] >= 1) && strlen($_POST['rss'] >= 1) && strlen($_POST['categories'] >= 1)) {
@@ -9,7 +9,7 @@ if (isset($_POST['add-sources'])) {
         $rss = $_POST['rss'];
         $categories = $_POST['categories'];
 
-        $consult = "INSERT INTO newssources VALUES ('', '$name', '$rss', '$categories', '1') ";
+        $consult = "INSERT INTO newssources VALUES ('', '$name', '$rss', '$categories', '$usuario_id') ";
         $connect = getConnection();
         $result = mysqli_query($connect, $consult);
 

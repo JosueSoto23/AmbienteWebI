@@ -2,6 +2,10 @@
 
 include "Includes/LoadCategories.php";
 
+session_start();
+$usuario = $_SESSION['name'];
+$usuario_id = $_SESSION['id'];
+
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +28,7 @@ include "Includes/LoadCategories.php";
 
     <header>
         <h1><a href="Includes/UserLogout.php"><img src="Images/logo.png"></a></h1>
-        <button type="button" class="btn btn-dark"> <img class="icon" src="Images/user_50px.png" alt="x" /> <?php echo "Josué Soto"; ?> </button>
+        <button type="button" class="btn btn-dark"> <img class="icon" src="Images/user_50px.png" alt="x" /> <?php echo "User"; ?> <br> <?php echo $usuario; ?> </button>
         <button type="button" class="btn btn-light" onclick="location.href='Includes/UserLogout.php'"> Logout </button>
         <button type="button" class="btn btn-light" onclick="location.href='NewsSources.php'"> News Sources </button>
         <h3 class="title"> Add News Source </h3>
