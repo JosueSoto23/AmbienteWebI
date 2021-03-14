@@ -18,6 +18,9 @@ if (isset($_POST['login'])) {
     $filas = mysqli_num_rows($resultado);
     $user = mysqli_fetch_array($resultado);
 
+    $_SESSION['id'] = $user[0];
+    $_SESSION['name'] = $user[1];
+
     if ($filas) {
 
       if ($user[4] === "Administrador") {
