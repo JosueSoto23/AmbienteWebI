@@ -26,6 +26,35 @@
 
     <div>
 
+        <div class="container">
+
+            <table class="table table-responsive table-bordered">
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php
+                    foreach ($query as $row) { ?>
+                        <tr>
+                            <td><?php echo ($row['name']); ?></td>
+                            <td>
+                                <a href="EditCategories.php?id=<?php echo $row['id'] ?>">
+                                    <button type='button' class='btn btn-success'> Edit </button> </a>
+                                <a href="Includes/DeleteCategories.php?id=<?php echo $row['id'] ?>">
+                                    <button type='button' class='btn btn-danger'> Delete </button> </a>
+                            </td>
+                        </tr>
+                </tbody>
+            <?php
+                    }
+            ?>
+            </table>
+
+            <button onclick="location.href='AddCategories.php'" name="open-add-categories" class="btn btn-primary"> Add New </button><br>
+        </div>
 
     </div>
 
