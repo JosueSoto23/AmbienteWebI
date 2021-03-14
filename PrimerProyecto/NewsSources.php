@@ -1,3 +1,9 @@
+<?php
+
+    include "Includes/LoadCategories.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,7 +59,7 @@
             ?>
             </table>
 
-            <button onclick="location.href='AddCategories.php'" name="open-add-categories" class="btn btn-primary"> Add New </button><br>
+            <button onclick="location.href='AddSource.php'" name="open-add-categories" class="btn btn-primary"> Add New </button><br>
         </div>
 
     </div>
