@@ -1,3 +1,11 @@
+<?php
+
+session_start();
+$usuario = $_SESSION['name'];
+$usuario_id = $_SESSION['id'];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -18,7 +26,7 @@
 
     <header>
         <h1><a href="Includes/UserLogout.php"><img src="Images/logo.png"></a></h1>
-        <button type="button" class="btn btn-dark"> <img class="icon" src="Images/user_50px.png" alt="x" /> <?php echo "Admin"; ?> </button>
+        <button type="button" class="btn btn-dark"> <img class="icon" src="Images/user_50px.png" alt="x" /> <?php echo "Admin"; ?> <br> <?php echo $usuario; ?> </button>
         <button type="button" class="btn btn-light" onclick="location.href='Includes/UserLogout.php'"> Logout </button>
         <button type="button" class="btn btn-light" onclick="location.href='AdminDash.php'"> Categories </button>
         <h3 class="title"> Add Categories </h3>
