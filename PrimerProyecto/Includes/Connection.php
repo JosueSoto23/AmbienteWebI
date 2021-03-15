@@ -28,18 +28,7 @@ function userAuthentication($email, $pass)
 
 function saveRSS($rss, $id_newssource, $user_id, $category)
 {
-
-  $invalidurl = false;
-  if (@simplexml_load_file($rss)) {
-    $news = simplexml_load_file($rss);
-  } else {
-    $invalidurl = true;
-?>
-    <div class="alert alert-danger" role="alert">
-      Invalid RSS!
-    </div>
-<?php
-  }
+  $news = simplexml_load_file($rss);
 
   $i = 0;
   if (!empty($news)) {
