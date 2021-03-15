@@ -8,30 +8,43 @@ if (isset($_POST['edit-sources'])) {
         $rss = $_POST['rss'];
         $categories = $_POST['categories'];
 
-        $consult = " UPDATE `newssources` SET `name` = '$name', `rss` = '$rss', `category` = '$categories' WHERE `newssources`.`id` = '$id' ";
-        $connect = getConnection();
-        $result = mysqli_query($connect, $consult);
+        $invalidurl = false;
+        if (@simplexml_load_file($rss)) {
+            $news = simplexml_load_file($rss);
 
-        if ($result) {
+            $consult = " UPDATE `newssources` SET `name` = '$name', `rss` = '$rss', `category` = '$categories' WHERE `newssources`.`id` = '$id' ";
+            $connect = getConnection();
+            $result = mysqli_query($connect, $consult);
 
+            if ($result) {
+                if ($result) {
 ?>
 
-            <div class="alert alert-success" role="alert">
-                Successfully Edited!
-            </div>
+                    <div class="alert alert-success" role="alert">
+                        Successfully Registered!
+                    </div>
 
-        <?php
+                <?php
 
+                } else {
+
+                ?>
+
+                    <div class="alert alert-danger" role="alert">
+                        Registration failed!
+                    </div>
+
+            <?php
+
+                }
+            }
         } else {
-
-        ?>
-
+            $invalidurl = true;
+            ?>
             <div class="alert alert-danger" role="alert">
-                Registration failed!
+                Invalid RSS!
             </div>
-
         <?php
-
         }
     } else {
 

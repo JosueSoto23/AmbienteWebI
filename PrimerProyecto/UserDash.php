@@ -16,7 +16,7 @@ $category = mysqli_query($conex, $consult);
 $categories = mysqli_fetch_array($category);
 
 $conex2 = getConnection();
-$consult2 = "SELECT * FROM news WHERE user_id = '$logged' ";
+$consult2 = "SELECT * FROM news WHERE user_id = '$logged' ORDER BY date DESC ";
 $new = mysqli_query($conex2, $consult2);
 $news = mysqli_fetch_array($new);
 
@@ -86,7 +86,7 @@ $news = mysqli_fetch_array($new);
                         <source srcset="Images/image.png" type="image/svg+xml">
                         <img src="Images/image.png" class="img-fluid img-thumbnail" alt="...">
                     </picture>
-                    <h5 style="text-align: left;"> <?php echo ($row['title']); ?> </h5>
+                    <h5 style="text-align: left;"> <b><?php echo ($row['title']); ?></b> </h5>
                     <h6 style="text-align: left;"> <?php echo ($row['category']); ?></h6>
                     <p style="text-align: left;"> <?php echo ($row['short_decription']); ?> </p>
                     <a href="<?php echo $row['permalink']; ?>" style="text-align: left;"> Ver Noticia </a>
