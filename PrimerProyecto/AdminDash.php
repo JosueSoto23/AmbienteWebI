@@ -1,9 +1,13 @@
 <?php
 
-require "Includes/LoadCategories.php";
+include "Includes/LoadCategories.php";
 
 session_start();
 $usuario = $_SESSION['name'];
+
+if ($usuario == null) {
+    header("Location: Index.php");
+}
 
 ?>
 

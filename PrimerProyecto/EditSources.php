@@ -1,6 +1,14 @@
 <?php
 
-    include "Includes/LoadCategories.php";
+include "Includes/LoadCategories.php";
+
+session_start();
+$usuario = $_SESSION['name'];
+$usuario_id = $_SESSION['id'];
+
+if ($usuario == null) {
+    header("Location: Index.php");
+}
 
 ?>
 

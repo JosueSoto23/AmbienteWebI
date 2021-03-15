@@ -4,6 +4,10 @@ include "Includes/LoadSources.php";
 
 $usuario = $_SESSION['name'];
 
+if ($usuario == null) {
+    header("Location: Index.php");
+}
+
 ?>
 
 <!DOCTYPE html>

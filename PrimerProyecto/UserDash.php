@@ -1,9 +1,23 @@
 <?php
 
-require 'Includes/UserLogin.php';
+include "Includes/UserLogin.php";
 
 session_start();
 $usuario = $_SESSION['name'];
+
+if ($usuario == null) {
+    header("Location: Index.php");
+}
+
+$conex = getConnection();
+$consult = "SELECT * FROM categories";
+$category = mysqli_query($conex, $consult);
+$categories = mysqli_fetch_array($category);
+
+$conex2 = getConnection();
+$consult2 = "SELECT * FROM news";
+$new = mysqli_query($conex2, $consult2);
+$news = mysqli_fetch_array($new);
 
 ?>
 
@@ -37,135 +51,41 @@ $usuario = $_SESSION['name'];
         <hr>
     </header>
 
-    <div class="container pt-3">
+    <div class="container">
 
         <div class="card-deck">
+
             <div class="card" style="width: 16rem;">
                 <ul class="list-group list-group-flush">
-                    <li style="text-align: center;" class="list-group-item">An item</li>
+                    <li style="text-align: center;" class="list-group-item"> Portada </li>
                 </ul>
             </div>
-            <div class="card" style="width: 16rem;">
-                <ul class="list-group list-group-flush">
-                    <li style="text-align: center;" class="list-group-item">An item</li>
-                </ul>
-            </div>
-            <div class="card" style="width: 16rem;">
-                <ul class="list-group list-group-flush">
-                    <li style="text-align: center;" class="list-group-item">An item</li>
-                </ul>
-            </div>
-            <div class="card" style="width: 16rem;">
-                <ul class="list-group list-group-flush">
-                    <li style="text-align: center;" class="list-group-item">An item</li>
-                </ul>
-            </div>
-            <div class="card" style="width: 16rem;">
-                <ul class="list-group list-group-flush">
-                    <li style="text-align: center;" class="list-group-item">An item</li>
-                </ul>
-            </div>
-            <div class="card" style="width: 16rem;">
-                <ul class="list-group list-group-flush">
-                    <li style="text-align: center;" class="list-group-item">An item</li>
-                </ul>
-            </div>
-            <div class="card" style="width: 16rem;">
-                <ul style="text-align: center;" class="list-group list-group-flush">
-                    <li class="list-group-item">An item</li>
-                </ul>
-            </div>
-        </div>
-        <br><br>
+            <?php
+            foreach ($category as $row) {
+            ?>
+                <div class="card" style="width: 16rem;">
+                    <ul class="list-group list-group-flush">
+                        <li style="text-align: center;" class="list-group-item"> <?php echo $row['name'] ?> </li>
+                    </ul>
+                </div>
+            <?php
+            }
+            ?>
+
+        </div><br>
 
         <div class="card-deck">
-            <div class="card">
-                <div class="card-body">
-                    <p class="card-text">FECHA</p>
-                </div>
-                <img class="card-img-top" src="img/logo.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Titulo de la noticia</h5>
-                    <h6 class="card-title">Categoria</h6>
-                    <p class="card-text">Descripción corta de la noticia.</p>
-                </div>
-                <div class="card-footer">
-                    <a href="#" class="card-link">Ver Noticia</a>
-                </div>
+
+            <div class="" style="margin: 10px; margin-right : 40px;">
+                <p style="text-align: left; "> fecha </p>
+                <img class="card-img-top" src="Images/logo.jpg" alt="Card image cap"><br>
+                <h5 style="text-align: left;"> Titulo de la noticia </h5>
+                <h6 style="text-align: left;"> Categoria</h6>
+                <p style="text-align: left;"> Descripción corta de la noticia. </p>
+                <a href="#" style="text-align: left;"> Ver Noticia </a>
             </div>
-            <div class="card">
-                <div class="card-body">
-                    <p class="card-text">FECHA</p>
-                </div>
-                <img class="card-img-top" src="img/logo.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Titulo de la noticia</h5>
-                    <h6 class="card-title">Categoria</h6>
-                    <p class="card-text">Descripción corta de la noticia.</p>
-                </div>
-                <div class="card-footer">
-                    <a href="#" class="card-link">Ver Noticia</a>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <p class="card-text">FECHA</p>
-                </div>
-                <img class="card-img-top" src="img/logo.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Titulo de la noticia</h5>
-                    <h6 class="card-title">Categoria</h6>
-                    <p class="card-text">Descripción corta de la noticia.</p>
-                </div>
-                <div class="card-footer">
-                    <a href="#" class="card-link">Ver Noticia</a>
-                </div>
-            </div>
-        </div>
-        <br>
-        <div class="card-deck">
-            <div class="card">
-                <div class="card-body">
-                    <p class="card-text">FECHA</p>
-                </div>
-                <img class="card-img-top" src="img/logo.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Titulo de la noticia</h5>
-                    <h6 class="card-title">Categoria</h6>
-                    <p class="card-text">Descripción corta de la noticia.</p>
-                </div>
-                <div class="card-footer">
-                    <a href="#" class="card-link">Ver Noticia</a>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <p class="card-text">FECHA</p>
-                </div>
-                <img class="card-img-top" src="img/logo.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Titulo de la noticia</h5>
-                    <h6 class="card-title">Categoria</h6>
-                    <p class="card-text">Descripción corta de la noticia.</p>
-                </div>
-                <div class="card-footer">
-                    <a href="#" class="card-link">Ver Noticia</a>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <p class="card-text">FECHA</p>
-                </div>
-                <img class="card-img-top" src="img/logo.jpg" alt="Card image cap">
-                <div class="card-body">
-                    <h5 class="card-title">Titulo de la noticia</h5>
-                    <h6 class="card-title">Categoria</h6>
-                    <p class="card-text">Descripción corta de la noticia.</p>
-                </div>
-                <div class="card-footer">
-                    <a href="#" class="card-link">Ver Noticia</a>
-                </div>
-            </div>
+
+
 
         </div>
 

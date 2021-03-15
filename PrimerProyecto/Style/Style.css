@@ -97,4 +97,7 @@ footer {
     font-size: 15px;
 }
 
-.p {}
+.container {
+    background-color: blue;
+    align-content: center;
+}
