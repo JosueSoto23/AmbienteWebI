@@ -41,10 +41,10 @@ function saveRSS($rss, $id_newssource, $user_id, $category)
       $title = $item->title;
       $desc = $item->description;
       $link = $item->link;
-      $postDate = $item->date;
-      $date = date('D, d M Y', strtotime($postDate));
+      $postDate = $item->pubDate;
+      $pubDate = date("Y-m-d H:i:s", strtotime($postDate));
 
-      $insert = "INSERT INTO news VALUES ('', '$title', '$desc', '$link', '$date', '$id_newssource', '$user_id', '$category') ";
+      $insert = "INSERT INTO news VALUES ('', '$title', '$desc', '$link', '$pubDate', '$id_newssource', '$user_id', '$category') ";
 
       $con = getConnection();
       $consult = mysqli_query($con, $insert);
