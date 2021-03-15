@@ -1,5 +1,7 @@
 <?php
 
+$usuario_id = $_SESSION['id'];
+
 if (isset($_POST['edit-sources'])) {
     if (strlen($_POST['name'] >= 1) && strlen($_POST['rss'] >= 1) && strlen($_POST['categories'] >= 1)) {
 
@@ -16,7 +18,20 @@ if (isset($_POST['edit-sources'])) {
             $connect = getConnection();
             $result = mysqli_query($connect, $consult);
 
+            $consult2 = "DELETE FROM `news` WHERE `news`.`user_id` = '$usuario_id' AND `news`.`news_source_id` = '$id' ";
+            $connect2 = getConnection();
+            $result2 = mysqli_query($connect2, $consult2);
+
             if ($result) {
+
+                $connex3 = getConnection();
+                $consult3 = "SELECT id FROM newssources WHERE name = '$name' AND category = '$categories'";
+                $result3 = mysqli_query($connex3, $consult3);
+                $news = mysqli_fetch_array($result3);
+                $id_newssource = $news['id'];
+
+                saveRSS($rss, $id_newssource, $usuario_id, $categories);
+
                 if ($result) {
 ?>
 

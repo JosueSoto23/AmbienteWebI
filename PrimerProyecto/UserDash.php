@@ -16,7 +16,7 @@ $category = mysqli_query($conex, $consult);
 $categories = mysqli_fetch_array($category);
 
 $conex2 = getConnection();
-$consult2 = "SELECT * FROM news WHERE user_id = '$logged' ORDER BY date DESC ";
+$consult2 = "SELECT * FROM news WHERE user_id = '$logged' ORDER BY date ASC ";
 $new = mysqli_query($conex2, $consult2);
 $news = mysqli_fetch_array($new);
 
