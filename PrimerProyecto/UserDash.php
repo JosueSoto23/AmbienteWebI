@@ -4,6 +4,7 @@ include "Includes/UserLogin.php";
 
 session_start();
 $usuario = $_SESSION['name'];
+$logged = $_SESSION['id'];
 
 if ($usuario == null) {
     header("Location: Index.php");
@@ -15,9 +16,10 @@ $category = mysqli_query($conex, $consult);
 $categories = mysqli_fetch_array($category);
 
 $conex2 = getConnection();
-$consult2 = "SELECT * FROM news";
+$consult2 = "SELECT * FROM news WHERE user_id = '$logged' ";
 $new = mysqli_query($conex2, $consult2);
 $news = mysqli_fetch_array($new);
+
 
 ?>
 
@@ -52,7 +54,6 @@ $news = mysqli_fetch_array($new);
     </header>
 
     <div class="container">
-
         <div class="card-deck">
 
             <div class="card" style="width: 16rem;">
@@ -76,17 +77,23 @@ $news = mysqli_fetch_array($new);
 
         <div class="card-deck">
 
-            <div class="" style="margin: 10px; margin-right : 40px;">
-                <p style="text-align: left; "> fecha </p>
-                <img class="card-img-top" src="Images/logo.jpg" alt="Card image cap"><br>
-                <h5 style="text-align: left;"> Titulo de la noticia </h5>
-                <h6 style="text-align: left;"> Categoria</h6>
-                <p style="text-align: left;"> Descripción corta de la noticia. </p>
-                <a href="#" style="text-align: left;"> Ver Noticia </a>
-            </div>
-
-
-
+            <?php
+            foreach ($new as $row) {
+            ?>
+                <div class="" style="margin: 10px; margin-right : 40px;">
+                    <p style="text-align: left; "> <?php echo ($row['date']); ?> </p>
+                    ​<picture>
+                        <source srcset="Images/image.png" type="image/svg+xml">
+                        <img src="Images/image.png" class="img-fluid img-thumbnail" alt="...">
+                    </picture>
+                    <h5 style="text-align: left;"> <?php echo ($row['title']); ?> </h5>
+                    <h6 style="text-align: left;"> <?php echo ($row['category']); ?></h6>
+                    <p style="text-align: left;"> <?php echo ($row['short_decription']); ?> </p>
+                    <a href="<?php echo $row['permalink']; ?>" style="text-align: left;"> Ver Noticia </a>
+                </div>
+            <?php
+            }
+            ?>
         </div>
 
         <footer>

@@ -7,14 +7,24 @@ if (isset($_POST['add-sources'])) {
 
         $name = $_POST['name'];
         $rss = $_POST['rss'];
-        $categories = $_POST['categories'];
+        $category = $_POST['categories'];
 
-        $consult = "INSERT INTO newssources VALUES ('', '$name', '$rss', '$categories', '$usuario_id') ";
-        $connect = getConnection();
-        $result = mysqli_query($connect, $consult);
+        $consult = "INSERT INTO newssources VALUES ('', '$name', '$rss', '$category', '$usuario_id') ";
+
+        $connex = getConnection();
+        $result = mysqli_query($connex, $consult);
 
         if ($result) {
+            $connex2 = getConnection();
+            $consult2 = "SELECT id FROM newssources WHERE name = '$name' AND category = '$category'";
+            $result2 = mysqli_query($connex2, $consult2);
+            $news = mysqli_fetch_array($result2);
+            $id_newssource = $news['id'];
+            
+            saveRSS($rss, $id_newssource, $usuario_id, $category);
+        }
 
+        if ($result) {
 ?>
 
             <div class="alert alert-success" role="alert">
