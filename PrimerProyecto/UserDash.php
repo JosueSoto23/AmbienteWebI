@@ -15,11 +15,11 @@ $consult = "SELECT * FROM categories";
 $category = mysqli_query($conex, $consult);
 $categories = mysqli_fetch_array($category);
 
+$cont = 1;
 $conex2 = getConnection();
-$consult2 = "SELECT * FROM news WHERE user_id = '$logged' ORDER BY date ASC ";
+$consult2 = "SELECT * FROM news WHERE user_id = '$logged' AND category = 'asd' ORDER BY date ASC";
 $new = mysqli_query($conex2, $consult2);
 $news = mysqli_fetch_array($new);
-
 
 ?>
 
@@ -54,22 +54,16 @@ $news = mysqli_fetch_array($new);
     </header>
 
     <div class="container">
-        <div class="card-deck">
-
-            <div class="card" style="width: 16rem;">
-                <ul class="list-group list-group-flush">
-                    <li style="text-align: center;" class="list-group-item"> Portada </li>
-                </ul>
-            </div>
+        <div class="btn-group" role="group" aria-label="Basic outlined example">
+            <button type="button" class="btn btn-outline-primary" value="0"> Portada </button>
             <?php
             foreach ($category as $row) {
             ?>
-                <div class="card" style="width: 16rem;">
-                    <ul class="list-group list-group-flush">
-                        <li style="text-align: center;" class="list-group-item"> <?php echo $row['name'] ?> </li>
-                    </ul>
+                <div>
+                    <button type="button" style="margin-right:50%" class="btn btn-outline-primary" value="<?php $cont ?>"> <?php echo $row['name'] ?> </button>
                 </div>
             <?php
+                $cont++;
             }
             ?>
 
@@ -78,20 +72,30 @@ $news = mysqli_fetch_array($new);
         <div class="card-deck">
 
             <?php
-            foreach ($new as $row) {
+            if ($news == null) {
             ?>
-                <div class="" style="margin: 10px; margin-right : 40px;">
-                    <p style="text-align: left; "> <?php echo ($row['date']); ?> </p>
-                    ​<picture>
-                        <source srcset="Images/image.png" type="image/svg+xml">
-                        <img src="Images/image.png" class="img-fluid img-thumbnail" alt="...">
-                    </picture>
-                    <h5 style="text-align: left;"> <b><?php echo ($row['title']); ?></b> </h5>
-                    <h6 style="text-align: left;"> <?php echo ($row['category']); ?></h6>
-                    <p style="text-align: left;"> <?php echo ($row['short_decription']); ?> </p>
-                    <a href="<?php echo $row['permalink']; ?>" style="text-align: left;"> Ver Noticia </a>
+                <div class="extra" style="align-items:center; margin-left:36%;">
+                <br>
+                    <h6 style="align-items:center; margin-left:55%;"> Click in here to add your </h6>
+                    <button type="button" class="btn btn-extra" onclick="location.href='NewsSources.php'"> News Sources </button>
                 </div>
+                <?php
+            } else {
+                foreach ($new as $row) {
+                ?>
+                    <div class="" style="margin: 10px; margin-right : 40px;">
+                        <p style="text-align: left; "> <?php echo ($row['date']); ?> </p>
+                        ​<picture>
+                            <source srcset="Images/image.png" type="image/svg+xml">
+                            <img src="Images/image.png" class="img-fluid img-thumbnail" alt="...">
+                        </picture>
+                        <h5 style="text-align: left;"> <b><?php echo ($row['title']); ?></b> </h5>
+                        <h6 style="text-align: left;"> <?php echo ($row['category']); ?></h6>
+                        <p style="text-align: left;"> <?php echo ($row['short_decription']); ?> </p>
+                        <a href="<?php echo $row['permalink']; ?>" style="text-align: left;"> Ver Noticia </a>
+                    </div>
             <?php
+                }
             }
             ?>
         </div>

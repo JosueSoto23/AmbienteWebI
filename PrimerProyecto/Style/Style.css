@@ -35,6 +35,13 @@ header {
     width: 15%;
 }
 
+.btn-extra {
+    background-color: whitesmoke;
+    text-align: left;
+    margin-top: 2px;
+    width: 15%;
+}
+
 .title {
     margin-left: 10%;
     margin-bottom: 2%;
