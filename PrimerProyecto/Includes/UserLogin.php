@@ -5,7 +5,7 @@ include "Connection.php";
 if (isset($_POST['login'])) {
   if (strlen($_POST['usuario'] >= 1) && strlen($_POST['contraseña'] >= 1)) {
 
-    $usuario = $_POST['usuario'];
+    $usuario = trim($_POST['usuario']);
     $contraseña = md5($_POST['contraseña']);
     session_start();
     $_SESSION['usuario'] = $usuario;
@@ -18,17 +18,18 @@ if (isset($_POST['login'])) {
     $filas = mysqli_num_rows($resultado);
     $user = mysqli_fetch_array($resultado);
 
-    $_SESSION['id'] = $user[0];
-    $_SESSION['name'] = $user[1];
 
     if ($filas) {
+      $_SESSION['id'] = $user[0];
+      $_SESSION['name'] = $user[1];
 
       if ($user[4] === "Administrador") {
         header("location: AdminDash.php");
       } else {
         header("location: UserDash.php");
       }
-    } else {
+    }
+    if (!$filas) {
 
 ?>
 
@@ -37,19 +38,20 @@ if (isset($_POST['login'])) {
       </div>
 
     <?php
-    
+
+
+      mysqli_free_result($resultado);
+      mysqli_close($conexion);
     }
-
-    mysqli_free_result($resultado);
-    mysqli_close($conexion);
-
-  }
+  } else {
     ?>
     <div class="alert alert-danger" role="alert">
       Required fields!
     </div>
 
 <?php
+
+  }
 }
 
 ?>
