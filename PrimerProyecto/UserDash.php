@@ -66,7 +66,7 @@ $news = mysqli_fetch_array($new);
             }
             ?>
 
-        </div><br>
+        </div><br><br><br>
 
         <div class="card-deck">
 
@@ -82,6 +82,7 @@ $news = mysqli_fetch_array($new);
                 foreach ($new as $row) {
                 ?>
                     <div class="" style="margin: 10px; margin-right : 40px;">
+                    <hr>
                         <p style="text-align: left; "> <?php echo ($row['date']); ?> </p>
                         ​<picture>
                             <source srcset="Images/image.png" type="image/svg+xml">
