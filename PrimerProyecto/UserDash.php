@@ -60,7 +60,8 @@ $news = mysqli_fetch_array($new);
             foreach ($category as $row) {
             ?>
                 <div>
-                    <a href=""> <button type='button' class='btn btn-outline-primary'> <?php echo $row['name'] ?> </button> </a>
+                    <a href="<?php applyFilter($conex, $logged, $row['name']) ?>">
+                        <button type='button' class='btn btn-outline-primary'> <?php echo $row['name'] ?> </button> </a>
                 </div>
             <?php
             }
@@ -82,7 +83,7 @@ $news = mysqli_fetch_array($new);
                 foreach ($new as $row) {
                 ?>
                     <div class="" style="margin: 10px; margin-right : 40px;">
-                    <hr>
+                        <hr>
                         <p style="text-align: left; "> <?php echo ($row['date']); ?> </p>
                         ​<picture>
                             <source srcset="Images/image.png" type="image/svg+xml">
