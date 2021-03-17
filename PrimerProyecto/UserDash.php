@@ -1,6 +1,7 @@
 <?php
 
 include "Includes/UserLogin.php";
+include "Includes/ApplyFilter.php";
 
 session_start();
 $usuario = $_SESSION['name'];
@@ -15,10 +16,9 @@ $consult = "SELECT * FROM categories";
 $category = mysqli_query($conex, $consult);
 $categories = mysqli_fetch_array($category);
 
-$cont = 1;
-$conex2 = getConnection();
-$consult2 = "SELECT * FROM news WHERE user_id = '$logged' ORDER BY date DESC";
-$new = mysqli_query($conex2, $consult2);
+$filter = "Internacionales";
+
+$new = applyFilter($conex, $logged, $filter);
 $news = mysqli_fetch_array($new);
 
 ?>
@@ -55,15 +55,15 @@ $news = mysqli_fetch_array($new);
 
     <div class="container">
         <div class="btn-group" role="group" aria-label="Basic outlined example">
-            <button type="button" class="btn btn-outline-primary" value="0"> Portada </button>
+            <button type="button" class="btn btn-outline-primary" onclick="<?php echo "hola" ?>"> Portada </button>
             <?php
             foreach ($category as $row) {
             ?>
                 <div>
-                    <button type="button" style="margin-right:50%" class="btn btn-outline-primary" value="<?php $cont ?>"> <?php echo $row['name'] ?> </button>
+                    <a href="Includes/ApplyFilter.php?id=<?php echo $row['name'] ?>">
+                        <button type='button' class='btn btn-outline-primary'> <?php echo $row['name'] ?> </button> </a>
                 </div>
             <?php
-                $cont++;
             }
             ?>
 
@@ -75,9 +75,8 @@ $news = mysqli_fetch_array($new);
             if ($news == null) {
             ?>
                 <div class="extra" style="align-items:center; margin-left:36%;">
-                <br>
-                    <h6 style="align-items:center; margin-left:55%;"> Click in here to add your </h6>
-                    <button type="button" class="btn btn-extra" onclick="location.href='NewsSources.php'"> News Sources </button>
+                    <br>
+                    <button type="button" class="btn btn-extra" onclick="location.href='NewsSources.php'"> Click in here to add your News Sources </button>
                 </div>
                 <?php
             } else {
