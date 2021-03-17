@@ -60,8 +60,7 @@ $news = mysqli_fetch_array($new);
             foreach ($category as $row) {
             ?>
                 <div>
-                    <a href="Includes/ApplyFilter.php?id=<?php echo $row['name'] ?>">
-                        <button type='button' class='btn btn-outline-primary'> <?php echo $row['name'] ?> </button> </a>
+                    <a href=""> <button type='button' class='btn btn-outline-primary'> <?php echo $row['name'] ?> </button> </a>
                 </div>
             <?php
             }
