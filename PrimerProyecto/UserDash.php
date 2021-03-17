@@ -16,7 +16,7 @@ $consult = "SELECT * FROM categories";
 $category = mysqli_query($conex, $consult);
 $categories = mysqli_fetch_array($category);
 
-$filter = "Internacionales";
+$filter = "Portada";
 
 $new = applyFilter($conex, $logged, $filter);
 $news = mysqli_fetch_array($new);
