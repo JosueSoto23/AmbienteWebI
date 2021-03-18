@@ -55,7 +55,7 @@ $news = mysqli_fetch_array($new);
 
     <div class="container">
         <div class="btn-group" role="group" aria-label="Basic outlined example">
-            <button type="button" class="btn btn-outline-primary" onclick="<?php echo "hola" ?>"> Portada </button>
+            <button type="button" class="btn btn-outline-primary" href="Script.js" onclick="applyFilter($conex, $logged, 'Deportes');"> Portada </button>
             <?php
             foreach ($category as $row) {
             ?>
@@ -68,6 +68,21 @@ $news = mysqli_fetch_array($new);
             ?>
 
         </div><br><br><br>
+
+
+        <p>This example uses the HTML DOM to assign an "onclick" event to a p element.</p>
+
+        <p id="demo">Click me.</p>
+
+        <script>
+            document.getElementById("demo").onclick = function() {
+                myFunction()
+            };
+
+            function myFunction() {
+                document.getElementById("demo").innerHTML = "<?php $filter ?>";
+            }
+        </script>
 
         <div class="card-deck">
 
