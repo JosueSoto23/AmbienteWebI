@@ -66,7 +66,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
                 foreach ($query as $row) { ?>
                     <tr>
-                        <td><?php echo ($row['name']); ?></td>
+                        <td><?php echo $row['name']; ?></td>
                         <td>
                             <a href="<?php echo site_url(['controller', 'edit', $row['id']]); ?>">
                                 <button type='button' class='btn btn-success'> Edit </button> </a>

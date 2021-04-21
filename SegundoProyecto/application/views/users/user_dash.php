@@ -28,7 +28,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <h1><a href="<?php echo site_url('controller/index')?>"><img src="<?= base_url() ?>Images/logo.png" alt=""></a></h1>
     <button type="button" class="btn btn-dark"> <img class="icon" src="<?= base_url() ?>Images/user_50px.png" alt="" /> <?php echo "User"; ?> <br> <?php ?> </button>
     <button type="button" class="btn btn-light" onclick="location.href='<?php echo site_url('controller/index'); ?>'"> Logout </button>
-    <button type="button" class="btn btn-light" onclick="location.href=''"> News Sources </button>
+    <button type="button" class="btn btn-light" onclick="location.href='<?php echo site_url('controller/news_source'); ?>'"> News Sources </button>
     <h1 class="text-center"> Your unique News Cover </h1>
     <hr>
   </header>
@@ -66,7 +66,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
       ?>
         <div class="extra" style="align-items:center; margin-left:36%;">
           <br>
-          <button type="button" class="btn btn-extra" onclick="location.href='NewsSources.php'"> Click in here to add your News Sources </button>
+          <button type="button" class="btn btn-extra" onclick="location.href='<?php echo site_url('controller/news_source'); ?>'"> Click in here to add your News Sources </button>
         </div>
         <?php
       //} else {
@@ -74,7 +74,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         ?>
           <div class="" style="margin: 10px; margin-right : 40px;">
             <hr>
-            <p style="text-align: left; "> <?php// echo ($row['date']); ?> </p>
+            <!--<p style="text-align: left; "> <?php// echo ($row['date']); ?> </p>
             ​<picture>
               <source srcset="Images/image.png" type="image/svg+xml">
               <img src="Images/image.png" class="img-fluid img-thumbnail" alt="...">
@@ -82,7 +82,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <h5 style="text-align: left;"> <b><?php// echo ($row['title']); ?></b> </h5>
             <h6 style="text-align: left;"> <?php// echo ($row['category']); ?></h6>
             <p style="text-align: left;"> <?php// echo ($row['short_decription']); ?> </p>
-            <a href="<?php// echo $row['permalink']; ?>" style="text-align: left;"> Ver Noticia </a>
+            <a href="<?php// echo $row['permalink']; ?>" style="text-align: left;"> Ver Noticia </a>-->
           </div>
       <?php
         //}

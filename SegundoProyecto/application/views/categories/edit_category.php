@@ -21,7 +21,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
     <header>
         <h1><a href="Includes/UserLogout.php"><img src="<?= base_url() ?>Images/logo.png" alt=""></a></h1>
-        <button type="button" class="btn btn-dark"> <img class="icon" src="<?= base_url() ?>Images/user_50px.png" alt="x" /> <?php echo "Admin"; ?> <br> <?php// echo $usuario; ?> </button>
+        <button type="button" class="btn btn-dark"> <img class="icon" src="<?= base_url() ?>Images/user_50px.png" alt="x" /> <?php echo "Admin"; ?> <br> <?php ?> </button>
         <button type="button" class="btn btn-light" onclick="location.href='<?php echo site_url('controller/index'); ?>'"> Logout </button>
         <button type="button" class="btn btn-light" onclick="location.href='<?php echo site_url('controller/admin_dash'); ?>'"> Categories </button>
         <h3 class="title"> Edit Category </h3>
