@@ -61,12 +61,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
             </thead>
             <tbody>
                 <?php
-                $categories = $this->Category->get_categories();
-                $data['categories'] = $categories;
+                $query = $this->Category->get_categories();
+                $data['query'] = $query;
 
-                foreach ($categories as $row) { ?>
+                foreach ($query as $row) { ?>
                     <tr>
-                        <td><?php echo ($row['name']); ?></td>
+                        <td><?php echo($row['name']); ?></td>
                         <td>
                             <a href="EditCategories.php?id=<?php echo $row['id'] ?>">
                                 <button type='button' class='btn btn-success'> Edit </button> </a>

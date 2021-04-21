@@ -95,5 +95,14 @@ class Controller extends CI_Controller
 		return $this->Category->get_categories();
 	}
 	
+	public function category_delete()
+	{
+		return $this->Category->category_delete();
+	}
+
+	public function category_edit($id, $name)
+	{
+		return $this->Category->category_edit($id, $name);
+	}
 
 }
