@@ -16,4 +16,11 @@ class User extends CI_Model
         return $query->result_array();
     }
 
+    public function get_users()
+    {
+        $id = "1";
+        $this->db->where('id', $id);
+        $query = $this->db->get('users');
+        echo $query->row();
+    }
 }
