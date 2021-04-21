@@ -22,7 +22,7 @@
 <body>
 
   <header>
-    <h1><a href="Index.php"><img alt="" src="Images/logo.png"></a></h1>
+    <h1><a href="<?php echo site_url('controller/Index'); ?>"><img alt="" src="<?= base_url() ?>Images/logo.png"></a></h1>
   </header>
 
   <h3 class="title"> User Registration </h3>

@@ -7,7 +7,7 @@ class Controller extends CI_Controller
 
 	public function index()
 	{
-		$this->load->view('users/index');
+		$this->load->view('users/Index');
 	}
 
 	public function users()
@@ -119,8 +119,7 @@ class Controller extends CI_Controller
         if ($result) {
             redirect(site_url(['controller', 'admin_dash']));
         } else {
-            // send errors
-            echo "FALLO";
+            redirect(site_url(['controller', 'edit']));
         }
 
 	}

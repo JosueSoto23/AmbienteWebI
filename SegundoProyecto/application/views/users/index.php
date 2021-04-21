@@ -25,7 +25,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <body>
 
   <header>
-    <h1><a href="Index.php"><img src="Images/logo.png" alt=""></a></h1>
+    <h1><a href="<?php echo site_url('controller/Index'); ?>"><img src="<?= base_url() ?>Images/logo.png" alt=""></a></h1>
   </header>
 
   <h3 class="title"> User Login </h3>

@@ -26,7 +26,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
   <header>
     <h1><a href="<?php echo site_url('controller/index')?>"><img src="<?= base_url() ?>Images/logo.png" alt=""></a></h1>
-    <button type="button" class="btn btn-dark"> <img class="icon" src="<?= base_url() ?>Images/user_50px.png" alt="" /> <br> <?php// echo $usuario; ?> </button>
+    <button type="button" class="btn btn-dark"> <img class="icon" src="<?= base_url() ?>Images/user_50px.png" alt="" /> <?php echo "User"; ?> <br> <?php ?> </button>
     <button type="button" class="btn btn-light" onclick="location.href='<?php echo site_url('controller/index'); ?>'"> Logout </button>
     <button type="button" class="btn btn-light" onclick="location.href=''"> News Sources </button>
     <h1 class="text-center"> Your unique News Cover </h1>
