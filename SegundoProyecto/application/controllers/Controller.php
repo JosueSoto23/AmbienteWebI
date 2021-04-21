@@ -76,6 +76,15 @@ class Controller extends CI_Controller
 		$this->load->view('categories/add_category');
 	}
 
+	public function edit($id)
+    {
+        $categories = $this->Category->get_category($id);
+        $data['categories'] = $categories;
+
+        $this->load->view('categories/edit_category', $data);
+    }
+
+
 	public function category_registration()
 	{
 		$name = $this->input->post('name');
@@ -95,14 +104,25 @@ class Controller extends CI_Controller
 		return $this->Category->get_categories();
 	}
 	
-	public function category_delete()
+	public function category_delete($id, $name)
 	{
-		return $this->Category->category_delete();
+		$this->Category->category_delete($id, $name);
+		redirect(site_url(['controller', 'admin_dash']));
 	}
 
-	public function category_edit($id, $name)
+	public function category_edit()
 	{
-		return $this->Category->category_edit($id, $name);
+		$id = $this->input->post('id');
+        $name = $this->input->post('name');
+
+        $result = $this->Category->category_edit($id, $name);
+        if ($result) {
+            redirect(site_url(['controller', 'admin_dash']));
+        } else {
+            // send errors
+            echo "FALLO";
+        }
+
 	}
 
 }

@@ -14,6 +14,14 @@ class Category extends CI_Model
         return $query->result_array();
     }
 
+    public function get_category($id)
+    {
+        $this->db->where('id', $id);
+        $query = $this->db->get('categories');
+        return $query->result_array();
+    }
+
+
     public function category_delete($id)
     {
         $this->db->delete('categories', array('id' => $id));

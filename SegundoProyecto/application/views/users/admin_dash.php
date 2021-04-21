@@ -55,8 +55,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <table class="table table-responsive table-bordered">
             <thead>
                 <tr>
-                    <th>Category</th>
-                    <th>Actions</th>
+                    <th id="1">Category</th>
+                    <th id="2">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -68,9 +68,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     <tr>
                         <td><?php echo($row['name']); ?></td>
                         <td>
-                            <a href="EditCategories.php?id=<?php echo $row['id'] ?>">
+                            <a href="<?php echo site_url(['controller', 'edit', $row['id']]); ?>">
                                 <button type='button' class='btn btn-success'> Edit </button> </a>
-                            <a href="Includes/DeleteCategories.php?id=<?php echo $row['id'] ?>">
+                            <a href="<?php echo site_url(['controller', 'category_delete', $row['id']]); ?>">
                                 <button type='button' class='btn btn-danger'> Delete </button> </a>
                         </td>
                     </tr>
