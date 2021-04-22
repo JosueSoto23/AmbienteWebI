@@ -34,16 +34,16 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
             <div class="input-group mb-3">
                 <?php
-                foreach ($sources as $row) { 
+                foreach ($sources as $rows) { 
                 ?>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1"> New Name </span>
-                    <input type="text" name="name" class="form-control">
+                    <input type="text" name="name" class="form-control" value=" <?php echo $rows['name']; ?>">
                 </div>
                 <br>
                 <div class="input-group mb-3">
                     <span class="input-group-text" id="basic-addon1"> New RSS URL </span>
-                    <input type="text" name="rss" class="form-control">
+                    <input type="text" name="rss" class="form-control" value=" <?php echo $rows['rss']; ?>">
                 </div>
                 <br>
                 <div class="input-group mb-3">
@@ -61,7 +61,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     </select>
                 </div>
                 <br>
-                <input style="visibility:hidden;" type="text" id="" name="id" value="<?php echo $row['id']; ?>" readonly>
+                <input style="" type="text" id="" name="id" value="<?php echo $rows['id']; ?>" readonly>
                 <?php
                 }
                 ?>

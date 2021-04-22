@@ -7,6 +7,7 @@ class Controller extends CI_Controller
 
 	public function index()
 	{
+		session_destroy();
 		$this->load->view('users/Index');
 	}
 
@@ -76,19 +77,19 @@ class Controller extends CI_Controller
 	}
 
 	public function edit($id)
-    {
-        $categories = $this->Category->get_category($id);
-        $data['categories'] = $categories;
+	{
+		$categories = $this->Category->get_category($id);
+		$data['categories'] = $categories;
 
-        $this->load->view('categories/edit_category', $data);
-    }
+		$this->load->view('categories/edit_category', $data);
+	}
 
 
 	public function category_registration()
 	{
 		$name = $this->input->post('name');
 
-		$result = $this->Category->category_registration($name);
+		$result = $this->Category->category_registration(trim($name));
 
 		if ($result) {
 			$this->session->set_flashdata('msg', 'User created, please login');
@@ -102,7 +103,7 @@ class Controller extends CI_Controller
 	{
 		return $this->Category->get_categories();
 	}
-	
+
 	public function category_delete($id)
 	{
 		$this->Category->category_delete($id);
@@ -112,17 +113,16 @@ class Controller extends CI_Controller
 	public function category_edit()
 	{
 		$id = $this->input->post('id');
-        $name = $this->input->post('name');
+		$name = $this->input->post('name');
 
-        $result = $this->Category->category_edit($id, $name);
-        if ($result) {
-            redirect(site_url(['controller', 'admin_dash']));
-        } else {
-            redirect(site_url(['controller', 'edit']));
-        }
-
+		$result = $this->Category->category_edit($id, $name);
+		if ($result) {
+			redirect(site_url(['controller', 'admin_dash']));
+		} else {
+			redirect(site_url(['controller', 'edit']));
+		}
 	}
-	
+
 	// News Sources functions
 
 	public function news_source()
@@ -141,23 +141,25 @@ class Controller extends CI_Controller
 	}
 
 	public function edit_news_sources($id)
-    {
-        $sources = $this->Sources->get_sources($id);
-        $data['sources'] = $sources;
+	{
+		$sources = $this->Sources->get_source($id);
+		$data['sources'] = $sources;
 
-        $this->load->view('newssources/edit_news_source', $data);
-    }
-
+		$this->load->view('newssources/edit_news_source', $data);
+	}
 
 	public function news_source_registration()
 	{
 		$name = $this->input->post('name');
 		$rss = $this->input->post('rss');
 		$category = $this->input->post('category');
-		$user_id = 1; //$this->input->post('user_id');
+		$user = $_SESSION['users'];
+		foreach($user as $x) {
+			$user_id = $x['id'];
+		}
 
 		$result = $this->Sources->sources_registration($name, $rss, $category, $user_id);
-
+		
 		if ($result) {
 			redirect(site_url(['controller', 'news_source']));
 		} else {
@@ -169,7 +171,7 @@ class Controller extends CI_Controller
 	{
 		return $this->Sources->get_sources();
 	}
-	
+
 	public function news_source_delete($id)
 	{
 		$this->Sources->source_delete($id);
@@ -179,17 +181,16 @@ class Controller extends CI_Controller
 	public function news_source_edit()
 	{
 		$id = $this->input->post('id');
-        $name = $this->input->post('name');
+		$name = $this->input->post('name');
 		$rss = $this->input->post('rss');
 		$category = $this->input->post('category');
 
-        $result = $this->Sources->source_edit($id, $name, $rss, $category);
-        if ($result) {
-            redirect(site_url(['controller', 'news_source']));
-        } else {
-            redirect(site_url(['controller', 'news_source']));
-        }
-
+		$result = $this->Sources->source_edit($id, $name, $rss, $category);
+		if ($result) {
+			redirect(site_url(['controller', 'news_source']));
+		} else {
+			redirect(site_url(['controller', 'news_source']));
+		}
 	}
 
 }

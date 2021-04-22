@@ -1,5 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
+$x = $_SESSION['users'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -43,7 +44,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
     <header>
         <h1><a href="<?php echo site_url('controller/Index'); ?>"><img src="<?= base_url() ?>Images/logo.png"></a></h1>
-        <button type="button" class="btn btn-dark"> <img class="icon" src="<?= base_url() ?>Images/user_50px.png" alt="x" /> <?php echo "Admin" ?> <br> <?php ?> </button>
+        <button type="button" class="btn btn-dark"> <img class="icon" src="<?= base_url() ?>Images/user_50px.png" alt="x" /> <?php echo "Admin" ?> <br> <?php foreach($x as $y) { echo $y['name']; } ?> </button>
         <button type="button" class="btn btn-light" onclick="location.href='<?php echo site_url('controller/Index'); ?>'"> Logout </button>
         <button type="button" class="btn btn-light" onclick="location.href=''"> Categories </button>
         <h3 class="title"> Categories </h3>
