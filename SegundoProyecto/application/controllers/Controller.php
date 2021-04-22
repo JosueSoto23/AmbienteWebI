@@ -232,6 +232,46 @@ class Controller extends CI_Controller
 		redirect(site_url(['controller', 'get_news']));
 	}
 
+	function filterRSS()
+	{
+		$filter = $this->input->post('name');
+		$sources = $this->Sources->get_sources();
+		$this->News->news_delete();
+
+		foreach ($sources as $row) {
+
+			$id_newssource = $row['id'];
+			$rss = $row['rss'];
+			$category = $row['category'];
+			$user_id = $row['user_id'];
+
+			$news = simplexml_load_file($rss);
+
+			$i = 0;
+			if (!empty($news)) {
+
+				$site = $news->channel->title;
+				$sitelink = $news->channel->link;
+
+				foreach ($news->channel->item as $item) {
+
+					$title = $item->title;
+					$desc = $item->description;
+					$link = $item->link;
+					$postDate = $item->pubDate;
+					$pubDate = date("Y-m-d H:i:s", strtotime($postDate));
+					$this->News->new_filter($title, $desc, $link, $pubDate, $id_newssource, $user_id, $category, $filter);
+
+					if ($i >= 16) {
+						break;
+					}
+					$i++;
+				}
+			}
+		}
+		redirect(site_url(['controller', 'get_news']));
+	}
+
 	function get_news() {
 		$news = $this->News->get_news();
 		$data['news'] = $news;

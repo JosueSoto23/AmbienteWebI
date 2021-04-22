@@ -38,13 +38,17 @@ $x = $_SESSION['users'];
 
   <div class="container">
     <div class="btn-group" role="group" aria-label="Basic outlined example">
-      <button type="button" class="btn btn-outline-primary" href="Script.js" onclick="applyFilter($conex, $logged, 'Deportes');"> Portada </button>
       <?php
       $categories = $this->Category->get_categories();
       foreach ($categories as $row) {
       ?>
         <div>
-          <button type="button" class="btn btn-outline-primary" onclick="location.href='<?php echo site_url('controller/saveRSS'); ?>'"> <?php echo $row['name'] ?> </button>
+          <form action="<?php echo site_url('controller/filterRSS'); ?>" method="POST" role="form">
+            <div>
+              <input style="visibility:hidden" type="text" name='name' value="<?php echo $row['name']; ?>" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <button type="submit" name="register" class="btn btn-outline-primary"> <?php echo $row['name']; ?> </button>
+          </form>
         </div>
       <?php
       }
