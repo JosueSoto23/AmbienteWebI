@@ -44,8 +44,7 @@ $x = $_SESSION['users'];
       foreach ($categories as $row) {
       ?>
         <div>
-          <a href="<?php// applyFilter($conex, $logged, $row['name']) ?>">
-            <button type='button' class='btn btn-outline-primary'> <?php echo $row['name'] ?> </button> </a>
+          <button type="button" class="btn btn-outline-primary" onclick="location.href='<?php echo site_url('controller/saveRSS'); ?>'"> <?php echo $row['name'] ?> </button>
         </div>
       <?php
       }
@@ -64,15 +63,16 @@ $x = $_SESSION['users'];
     </script>
 
     <div class="card-deck">
+      <button type="button" class="btn btn-outline-primary" onclick="location.href='<?php echo site_url('controller/saveRSS'); ?>'"> Refresh News </button>
+    </div>
+    <div class="card-deck">
 
-      <button type="button" class="btn btn-outline-primary" onclick="location.href='<?php echo site_url('controller/saveRSS'); ?>'"> Load News </button>
       <?php
       if ($news == null) {
       ?>
+        <button type="button" class="btn btn-extra" onclick="location.href='<?php echo site_url('controller/news_source'); ?>'"> Click in here to add your News Sources </button>
         <div class="extra" style="align-items:center; margin-left:36%;">
           <br>
-          <button type="button" class="btn btn-extra" onclick="location.href='<?php echo site_url('controller/news_source'); ?>'"> Click in here to add your News Sources </button>
-
         </div>
         <?php
       } else {

@@ -1,5 +1,6 @@
 <?php
 defined('BASEPATH') or exit('No direct script access allowed');
+$x = $_SESSION['users'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,7 +22,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
     <header>
         <h1><a href="<?php echo site_url('controller/index') ?>"><img src="<?= base_url() ?>Images/logo.png" alt=""></a></h1>
-        <button type="button" class="btn btn-dark"> <img class="icon" src="<?= base_url() ?>Images/user_50px.png" alt="" /> <?php echo "User"; ?> <br> <?php ?> </button>
+        <button type="button" class="btn btn-dark"> <img class="icon" src="<?= base_url() ?>Images/user_50px.png" alt="" /> <?php echo "User"; ?> <br> <?php foreach ($x as $y) {
+                                                                                                                                                            echo $y['name'];
+                                                                                                                                                        } ?> </button>
         <button type="button" class="btn btn-light" onclick="location.href='<?php echo site_url('controller/index'); ?>'"> Logout </button>
         <button type="button" class="btn btn-light" onclick="location.href='<?php echo site_url('controller/news_source'); ?>'"> News Sources </button>
         <h3 class="title"> Edit News Sources </h3>
@@ -29,39 +32,39 @@ defined('BASEPATH') or exit('No direct script access allowed');
     </header>
 
     <div class="container">
-    
+
         <form action="<?php echo site_url('controller/news_source_edit') ?>" method="POST">
 
             <div class="input-group mb-3">
                 <?php
-                foreach ($sources as $rows) { 
+                foreach ($sources as $rows) {
                 ?>
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1"> New Name </span>
-                    <input type="text" name="name" class="form-control" value=" <?php echo $rows['name']; ?>">
-                </div>
-                <br>
-                <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1"> New RSS URL </span>
-                    <input type="text" name="rss" class="form-control" value=" <?php echo $rows['rss']; ?>">
-                </div>
-                <br>
-                <div class="input-group mb-3">
-                    <label class="input-group-text" for="inputGroupSelect01"> New Category </label>
-                    <select class="form-control" name="category" id="inputGroupSelect01">
-                        <?php
-                        $query = $this->Category->get_categories();
-                        $data['query'] = $query;
-                        ?>
-                        <?php foreach ($query as $row) { ?>
-                            <option value="<?php echo $row['name']; ?>"> <?php echo $row['name']; ?> </option>
-                        <?php
-                        }
-                        ?>
-                    </select>
-                </div>
-                <br>
-                <input style="" type="text" id="" name="id" value="<?php echo $rows['id']; ?>" readonly>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"> New Name </span>
+                        <input type="text" name="name" class="form-control" value=" <?php echo $rows['name']; ?>">
+                    </div>
+                    <br>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"> New RSS URL </span>
+                        <input type="text" name="rss" class="form-control" value=" <?php echo $rows['rss']; ?>">
+                    </div>
+                    <br>
+                    <div class="input-group mb-3">
+                        <label class="input-group-text" for="inputGroupSelect01"> New Category </label>
+                        <select class="form-control" name="category" id="inputGroupSelect01">
+                            <?php
+                            $query = $this->Category->get_categories();
+                            $data['query'] = $query;
+                            ?>
+                            <?php foreach ($query as $row) { ?>
+                                <option value="<?php echo $row['name']; ?>"> <?php echo $row['name']; ?> </option>
+                            <?php
+                            }
+                            ?>
+                        </select>
+                    </div>
+                    <br>
+                    <input style="visibility:hidden;" type="text" id="" name="id" value="<?php echo $rows['id']; ?>" readonly>
                 <?php
                 }
                 ?>
