@@ -42,7 +42,7 @@ class Controller extends CI_Controller
 			foreach ($user as $row) {
 				$role = $row['role'];
 				if ($role === "Administrador") {
-					redirect('controller/get_news');
+					redirect('controller/admin_dash');
 				} else {
 					redirect(site_url(['controller', 'get_news']));
 				}

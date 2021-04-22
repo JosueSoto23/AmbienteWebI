@@ -10,6 +10,11 @@ class Sources extends CI_Model
 
     public function get_sources()
     {
+        $user = $_SESSION['users'];
+        foreach($user as $row){
+            $id = $row['id'];
+        }
+        $this->db->where('user_id', $id);
         $query = $this->db->get('newssources');
         return $query->result_array();
     }
