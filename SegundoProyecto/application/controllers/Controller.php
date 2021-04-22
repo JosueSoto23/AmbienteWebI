@@ -238,4 +238,6 @@ class Controller extends CI_Controller
 		$this->load->view('users/user_dash', $data);
 	}
 
+	
+
 }
