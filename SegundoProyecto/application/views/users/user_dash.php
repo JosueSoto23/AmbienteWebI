@@ -26,8 +26,10 @@ $x = $_SESSION['users'];
 <body>
 
   <header>
-    <h1><a href="<?php echo site_url('controller/index')?>"><img src="<?= base_url() ?>Images/logo.png" alt=""></a></h1>
-    <button type="button" class="btn btn-dark"> <img class="icon" src="<?= base_url() ?>Images/user_50px.png" alt="" /> <?php echo "User"; ?> <br> <?php foreach($x as $y) { echo $y['name'];} ?> </button>
+    <h1><a href="<?php echo site_url('controller/index') ?>"><img src="<?= base_url() ?>Images/logo.png" alt=""></a></h1>
+    <button type="button" class="btn btn-dark"> <img class="icon" src="<?= base_url() ?>Images/user_50px.png" alt="" /> <?php echo "User"; ?> <br> <?php foreach ($x as $y) {
+                                                                                                                                                      echo $y['name'];
+                                                                                                                                                    } ?> </button>
     <button type="button" class="btn btn-light" onclick="location.href='<?php echo site_url('controller/index'); ?>'"> Logout </button>
     <button type="button" class="btn btn-light" onclick="location.href='<?php echo site_url('controller/news_source'); ?>'"> News Sources </button>
     <h1 class="text-center"> Your unique News Cover </h1>
@@ -38,14 +40,15 @@ $x = $_SESSION['users'];
     <div class="btn-group" role="group" aria-label="Basic outlined example">
       <button type="button" class="btn btn-outline-primary" href="Script.js" onclick="applyFilter($conex, $logged, 'Deportes');"> Portada </button>
       <?php
-      //foreach ($category as $row) {
+      $categories = $this->Category->get_categories();
+      foreach ($categories as $row) {
       ?>
         <div>
           <a href="<?php// applyFilter($conex, $logged, $row['name']) ?>">
-            <button type='button' class='btn btn-outline-primary'> <?php// echo $row['name'] ?> </button> </a>
+            <button type='button' class='btn btn-outline-primary'> <?php echo $row['name'] ?> </button> </a>
         </div>
       <?php
-      //}
+      }
       ?>
 
     </div><br><br><br>
@@ -62,32 +65,33 @@ $x = $_SESSION['users'];
 
     <div class="card-deck">
 
+      <button type="button" class="btn btn-outline-primary" onclick="location.href='<?php echo site_url('controller/saveRSS'); ?>'"> Load News </button>
       <?php
-      //if ($news == null) {
+      if ($news == null) {
       ?>
         <div class="extra" style="align-items:center; margin-left:36%;">
           <br>
           <button type="button" class="btn btn-extra" onclick="location.href='<?php echo site_url('controller/news_source'); ?>'"> Click in here to add your News Sources </button>
+
         </div>
         <?php
-      //} else {
-        //foreach ($new as $row) {
+      } else {
+        foreach ($news as $row) {
         ?>
           <div class="" style="margin: 10px; margin-right : 40px;">
             <hr>
-            <!--<p style="text-align: left; "> <?php// echo ($row['date']); ?> </p>
+            <p style="text-align: left; "> <?php echo $row['date']; ?> </p>
             ​<picture>
               <source srcset="Images/image.png" type="image/svg+xml">
-              <img src="Images/image.png" class="img-fluid img-thumbnail" alt="...">
             </picture>
-            <h5 style="text-align: left;"> <b><?php// echo ($row['title']); ?></b> </h5>
-            <h6 style="text-align: left;"> <?php// echo ($row['category']); ?></h6>
-            <p style="text-align: left;"> <?php// echo ($row['short_decription']); ?> </p>
-            <a href="<?php// echo $row['permalink']; ?>" style="text-align: left;"> Ver Noticia </a>-->
+            <h5 style="text-align: left;"> <b><?php echo $row['title']; ?></b> </h5>
+            <h6 style="text-align: left;"> <?php echo $row['category']; ?></h6>
+            <p style="text-align: left;"> <?php echo $row['short_description']; ?> </p>
+            <a href="<?php echo $row['link']; ?>" style="text-align: left;"> Ver Noticia </a>
           </div>
       <?php
-        //}
-      //}
+        }
+      }
       ?>
     </div>
 

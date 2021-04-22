@@ -23,7 +23,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
         <h1><a href="<?php echo site_url('controller/index') ?>"><img src="<?= base_url() ?>Images/logo.png" alt=""></a></h1>
         <button type="button" class="btn btn-dark"> <img class="icon" src="<?= base_url() ?>Images/user_50px.png" alt="" /> <?php echo "User"; ?> <br> <?php ?> </button>
         <button type="button" class="btn btn-light" onclick="location.href='<?php echo site_url('controller/index'); ?>'"> Logout </button>
-        <button type="button" class="btn btn-light" onclick="location.href='<?php echo site_url('controller/user_dash'); ?>'"> Dashboard </button>
+        <button type="button" class="btn btn-light" onclick="location.href='<?php echo site_url('controller/get_news'); ?>'"> Dashboard </button>
         <h3 class="title"> News Sources </h3>
         <hr class="hr-title">
     </header>

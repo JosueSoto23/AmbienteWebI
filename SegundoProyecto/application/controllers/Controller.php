@@ -42,9 +42,9 @@ class Controller extends CI_Controller
 			foreach ($user as $row) {
 				$role = $row['role'];
 				if ($role === "Administrador") {
-					redirect('controller/admin_dash');
+					redirect('controller/get_news');
 				} else {
-					redirect('controller/user_dash');
+					redirect(site_url(['controller', 'get_news']));
 				}
 			}
 		} else {
@@ -154,12 +154,12 @@ class Controller extends CI_Controller
 		$rss = $this->input->post('rss');
 		$category = $this->input->post('category');
 		$user = $_SESSION['users'];
-		foreach($user as $x) {
+		foreach ($user as $x) {
 			$user_id = $x['id'];
 		}
 
 		$result = $this->Sources->sources_registration($name, $rss, $category, $user_id);
-		
+
 		if ($result) {
 			redirect(site_url(['controller', 'news_source']));
 		} else {
@@ -191,6 +191,51 @@ class Controller extends CI_Controller
 		} else {
 			redirect(site_url(['controller', 'news_source']));
 		}
+	}
+
+	function saveRSS()
+	{
+		$sources = $this->Sources->get_sources();
+		$this->News->news_delete();
+
+		foreach ($sources as $row) {
+
+			$id_newssource = $row['id'];
+			$rss = $row['rss'];
+			$category = $row['category'];
+			$user_id = $row['user_id'];
+
+			$news = simplexml_load_file($rss);
+
+			$i = 0;
+			if (!empty($news)) {
+
+				$site = $news->channel->title;
+				$sitelink = $news->channel->link;
+
+				foreach ($news->channel->item as $item) {
+
+					$title = $item->title;
+					$desc = $item->description;
+					$link = $item->link;
+					$postDate = $item->pubDate;
+					$pubDate = date("Y-m-d H:i:s", strtotime($postDate));
+					$this->News->new_registration($title, $desc, $link, $pubDate, $id_newssource, $user_id, $category);
+
+					if ($i >= 16) {
+						break;
+					}
+					$i++;
+				}
+			}
+		}
+		redirect(site_url(['controller', 'get_news']));
+	}
+
+	function get_news() {
+		$news = $this->News->get_news();
+		$data['news'] = $news;
+		$this->load->view('users/user_dash', $data);
 	}
 
 }

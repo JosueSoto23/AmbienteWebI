@@ -69,11 +69,6 @@ $news = mysqli_fetch_array($new);
 
         </div><br><br><br>
 
-
-        <p>This example uses the HTML DOM to assign an "onclick" event to a p element.</p>
-
-        <p id="demo">Click me.</p>
-
         <script>
             document.getElementById("demo").onclick = function() {
                 myFunction()
@@ -102,12 +97,11 @@ $news = mysqli_fetch_array($new);
                         <p style="text-align: left; "> <?php echo ($row['date']); ?> </p>
                         ​<picture>
                             <source srcset="Images/image.png" type="image/svg+xml">
-                            <img src="Images/image.png" class="img-fluid img-thumbnail" alt="...">
                         </picture>
                         <h5 style="text-align: left;"> <b><?php echo ($row['title']); ?></b> </h5>
                         <h6 style="text-align: left;"> <?php echo ($row['category']); ?></h6>
-                        <p style="text-align: left;"> <?php echo ($row['short_decription']); ?> </p>
-                        <a href="<?php echo $row['permalink']; ?>" style="text-align: left;"> Ver Noticia </a>
+                        <p style="text-align: left;"> <?php echo ($row['short_description']); ?> </p>
+                        <a href="<?php echo $row['link']; ?>" style="text-align: left;"> Ver Noticia </a>
                     </div>
             <?php
                 }
